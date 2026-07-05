@@ -1,0 +1,449 @@
+/* @vendidit/auth-client/preact/ui — component styles. Class names
+ * match those emitted by the components. Everything is themed via
+ * the `--vauth-*` and `--color-*` CSS variables in tokens.css, so
+ * consumers can re-theme without touching this file. */
+
+/* ─── Buttons ─────────────────────────────────────────────────────── */
+.vauth-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    border: 1px solid transparent;
+    border-radius: var(--vauth-radius);
+    padding: 10px 16px;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 120ms ease, border-color 120ms ease, transform 80ms ease;
+    line-height: 1;
+}
+.vauth-btn:active { transform: translateY(1px); }
+.vauth-btn:disabled, .vauth-btn[aria-busy="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.vauth-btn-primary {
+    background: var(--vauth-color-primary);
+    color: var(--color-primary-text);
+    border-color: var(--vauth-color-primary);
+}
+.vauth-btn-primary:hover:not(:disabled) { background: var(--vauth-color-primary-hover); border-color: var(--vauth-color-primary-hover); }
+.vauth-btn-ghost {
+    background: transparent;
+    color: var(--vauth-color-text);
+    border-color: var(--color-border-strong);
+}
+.vauth-btn-ghost:hover:not(:disabled) { background: var(--color-bg-hover); }
+.vauth-btn-danger {
+    background: var(--vauth-color-danger);
+    color: white;
+    border-color: var(--vauth-color-danger);
+}
+.vauth-btn-danger:hover:not(:disabled) { background: var(--color-danger-hover); border-color: var(--color-danger-hover); }
+.vauth-btn-sm { padding: 6px 10px; font-size: var(--font-size-sm); }
+
+/* ─── Inputs / form fields ────────────────────────────────────────── */
+.vauth-form { display: flex; flex-direction: column; gap: var(--space-4); width: 100%; }
+.vauth-field { display: flex; flex-direction: column; gap: var(--space-2); }
+.vauth-field-row { display: flex; gap: var(--space-3); }
+.vauth-field-row .vauth-field { flex: 1; }
+.vauth-field-label {
+    font-size: var(--font-size-sm);
+    color: var(--vauth-color-text-muted);
+    font-weight: 500;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.vauth-field-link { font-size: var(--font-size-xs); }
+.vauth-field-hint { font-size: var(--font-size-xs); color: var(--vauth-color-text-muted); }
+.vauth-field input,
+.vauth-field select,
+.vauth-field textarea,
+.vauth-input {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--color-bg-elev);
+    border: 1px solid var(--vauth-color-border);
+    border-radius: var(--vauth-radius);
+    color: var(--vauth-color-text);
+    font-size: var(--font-size-base);
+    font-family: inherit;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.vauth-field input:focus, .vauth-field select:focus, .vauth-field textarea:focus, .vauth-input:focus {
+    outline: none;
+    border-color: var(--vauth-color-primary);
+    box-shadow: 0 0 0 3px rgba(91, 141, 239, 0.15);
+}
+.vauth-field input::placeholder, .vauth-input::placeholder { color: var(--color-text-dim); }
+/* Native select arrow + dark-on-light readability follow the theme. */
+.vauth-field select, .vauth-input { color-scheme: light dark; }
+/* Checkbox / radio: themed accent, not stretched by the full-width rule above. */
+.vauth-field input[type="checkbox"],
+.vauth-field input[type="radio"],
+input[type="checkbox"].vauth-input,
+input[type="radio"].vauth-input {
+    width: auto;
+    padding: 0;
+    accent-color: var(--vauth-color-primary);
+}
+.vauth-field-inline { display: flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-sm); color: var(--vauth-color-text-muted); }
+.vauth-2fa-code-input { font-size: var(--font-size-xl); letter-spacing: 4px; text-align: center; max-width: 200px; }
+
+.vauth-error {
+    background: rgba(229, 72, 77, 0.12);
+    color: var(--vauth-color-danger);
+    border: 1px solid rgba(229, 72, 77, 0.4);
+    padding: 10px 12px;
+    border-radius: var(--vauth-radius);
+    font-size: var(--font-size-sm);
+}
+.vauth-form-success {
+    background: rgba(46, 194, 126, 0.08);
+    color: var(--vauth-color-success);
+    border: 1px solid rgba(46, 194, 126, 0.4);
+    padding: var(--space-4);
+    border-radius: var(--vauth-radius);
+    font-size: var(--font-size-sm);
+}
+.vauth-form-loading { color: var(--vauth-color-text-muted); padding: var(--space-4); }
+
+/* ─── Status badge ────────────────────────────────────────────────── */
+.vauth-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    background: var(--color-bg-hover);
+    color: var(--vauth-color-text-muted);
+}
+.vauth-status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.vauth-status-authenticated { background: rgba(46, 194, 126, 0.15); color: var(--vauth-color-success); }
+.vauth-status-anonymous { background: rgba(155, 163, 180, 0.15); color: var(--color-text-muted); }
+.vauth-status-pending, .vauth-status-loading { background: rgba(245, 165, 36, 0.12); color: var(--vauth-color-warn); }
+.vauth-status-offline { background: rgba(229, 72, 77, 0.12); color: var(--vauth-color-danger); }
+
+/* ─── Avatar ──────────────────────────────────────────────────────── */
+.vauth-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    border-radius: 50%;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+/* ─── User menu ───────────────────────────────────────────────────── */
+.vauth-user-menu { position: relative; display: inline-block; }
+.vauth-user-menu-trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.vauth-user-menu-trigger:focus-visible { outline: 2px solid var(--vauth-color-primary); outline-offset: 2px; }
+.vauth-user-menu-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    width: 240px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--vauth-radius);
+    box-shadow: var(--shadow-lg);
+    padding: var(--space-3);
+    z-index: 100;
+}
+.vauth-user-menu-identity { padding: var(--space-2) var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-border); margin-bottom: var(--space-3); }
+/* Interactive identity (click name → profile): button/anchor reset + hover. */
+.vauth-user-menu-identity-link { display: block; width: 100%; text-align: left; background: none; border-width: 0 0 1px 0; border-bottom: 1px solid var(--color-border); border-radius: var(--vauth-radius-sm, 6px); color: inherit; font: inherit; cursor: pointer; text-decoration: none; transition: background-color 140ms ease; }
+.vauth-user-menu-identity-link:hover { background-color: var(--vauth-color-surface-hover, rgba(127,127,127,0.08)); }
+.vauth-user-menu-identity-link:focus-visible { outline: 2px solid var(--vauth-color-primary, currentColor); outline-offset: 2px; }
+.vauth-user-menu-name { font-weight: 600; font-size: var(--font-size-base); }
+.vauth-user-menu-email { font-size: var(--font-size-xs); color: var(--vauth-color-text-muted); }
+.vauth-user-menu-org { font-size: var(--font-size-xs); color: var(--vauth-color-text-muted); margin-top: 4px; }
+.vauth-user-menu-extra { padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); margin-bottom: var(--space-2); }
+.vauth-user-menu-logout { width: 100%; }
+
+/* ─── SSO buttons ─────────────────────────────────────────────────── */
+.vauth-sso-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: var(--vauth-radius);
+    padding: 10px 16px;
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid var(--color-border-strong);
+    background: var(--color-bg-elev);
+    color: var(--vauth-color-text);
+    transition: background 120ms ease;
+}
+.vauth-sso-btn:hover:not(:disabled) { background: var(--color-bg-hover); }
+.vauth-sso-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.vauth-sso-icon { display: inline-flex; }
+.vauth-sso-dark {
+    background: var(--color-sso-dark-bg);
+    color: #ffffff;
+    border-color: var(--color-sso-dark-border);
+}
+.vauth-sso-dark:hover:not(:disabled) { background: var(--color-sso-dark-hover); }
+.vauth-sso-group { display: flex; flex-direction: column; gap: var(--space-2); }
+
+/* Menu-row link — used for items that live inside <UserMenu>'s
+ * `extra` slot, where an anchor needs to span the row like a
+ * regular menu entry would. */
+.vauth-menu-link {
+    width: 100%;
+    display: block;
+    text-align: left;
+}
+
+/* ─── Divider ─────────────────────────────────────────────────────── */
+.vauth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--vauth-color-text-muted);
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: var(--space-2) 0;
+}
+.vauth-divider::before, .vauth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+}
+.vauth-divider span { padding: 0 var(--space-3); }
+
+/* ─── Flow / section layout ───────────────────────────────────────── */
+.vauth-flow { display: flex; flex-direction: column; gap: var(--space-5); max-width: 420px; }
+.vauth-flow-header h1 { font-size: var(--font-size-2xl); margin: 0 0 var(--space-2); }
+.vauth-flow-sub { color: var(--vauth-color-text-muted); margin: 0; }
+.vauth-flow-footer { color: var(--vauth-color-text-muted); font-size: var(--font-size-sm); text-align: center; margin-top: var(--space-4); }
+.vauth-flow-text { color: var(--vauth-color-text-muted); }
+.vauth-section { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--vauth-radius); padding: var(--space-5); margin-bottom: var(--space-5); }
+.vauth-section h2 { margin: 0 0 var(--space-4); font-size: var(--font-size-lg); }
+.vauth-section details { margin-top: var(--space-3); }
+.vauth-section-footer { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-border); }
+
+/* ─── Profile card ────────────────────────────────────────────────── */
+.vauth-profile-card {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--vauth-radius);
+    padding: var(--space-5);
+}
+.vauth-profile-card-body { flex: 1; }
+.vauth-profile-card-name { margin: 0 0 var(--space-1); font-size: var(--font-size-lg); }
+.vauth-profile-card-email { color: var(--vauth-color-text-muted); font-size: var(--font-size-sm); }
+.vauth-profile-card-org { margin-top: var(--space-3); font-size: var(--font-size-sm); display: flex; gap: var(--space-2); }
+.vauth-profile-card-label { color: var(--vauth-color-text-muted); }
+.vauth-profile-card-roles { display: flex; flex-wrap: wrap; gap: 6px; margin-top: var(--space-3); }
+.vauth-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--color-bg-hover);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-mono);
+}
+.vauth-profile-card-imp {
+    margin-top: var(--space-3);
+    padding: var(--space-2) var(--space-3);
+    background: rgba(245, 165, 36, 0.10);
+    border: 1px solid rgba(245, 165, 36, 0.3);
+    color: var(--vauth-color-warn);
+    border-radius: var(--vauth-radius);
+    font-size: var(--font-size-sm);
+}
+
+/* ─── Sessions table ──────────────────────────────────────────────── */
+.vauth-sessions-table { width: 100%; border-collapse: collapse; }
+.vauth-sessions-table th, .vauth-sessions-table td {
+    text-align: left;
+    padding: var(--space-3) var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+}
+.vauth-sessions-table th { color: var(--vauth-color-text-muted); font-weight: 500; }
+.vauth-session-current { background: rgba(91, 141, 239, 0.06); }
+.vauth-session-tag { margin-left: 6px; padding: 1px 6px; font-size: var(--font-size-xs); background: var(--color-primary); color: white; border-radius: var(--radius-pill); }
+.vauth-sessions-empty, .vauth-sessions-loading { color: var(--vauth-color-text-muted); padding: var(--space-4); text-align: center; }
+
+/* ─── 2FA enroll ──────────────────────────────────────────────────── */
+.vauth-2fa-enroll ol { padding-left: var(--space-5); display: flex; flex-direction: column; gap: var(--space-5); }
+.vauth-2fa-steps li h4 { margin: 0 0 var(--space-2); font-size: var(--font-size-base); }
+.vauth-2fa-qr { background: white; padding: var(--space-3); border-radius: var(--vauth-radius); display: inline-block; }
+.vauth-2fa-secret { background: var(--color-bg-elev); padding: var(--space-2) var(--space-3); border-radius: var(--vauth-radius-sm); font-size: var(--font-size-sm); user-select: all; }
+
+/* ─── Email verification notice ───────────────────────────────────── */
+.vauth-verify-notice {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--vauth-radius);
+    padding: var(--space-5);
+}
+.vauth-verify-notice-icon { font-size: var(--font-size-2xl); }
+.vauth-verify-notice-title { margin: 0 0 var(--space-2); font-size: var(--font-size-lg); }
+.vauth-verify-notice-text { color: var(--vauth-color-text-muted); margin: 0 0 var(--space-3); }
+.vauth-verify-notice-confirm { color: var(--vauth-color-success); font-size: var(--font-size-sm); }
+
+/* ─── User lookup table ───────────────────────────────────────────── */
+.vauth-user-lookup-table { width: 100%; border-collapse: collapse; margin-top: var(--space-4); }
+.vauth-user-lookup-table th, .vauth-user-lookup-table td { text-align: left; padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-border); font-size: var(--font-size-sm); }
+.vauth-user-lookup-table th { color: var(--vauth-color-text-muted); font-weight: 500; }
+.vauth-user-lookup-empty { color: var(--vauth-color-text-muted); margin-top: var(--space-3); font-size: var(--font-size-sm); }
+
+/* ─── Token countdown ─────────────────────────────────────────────── */
+.vauth-token-countdown { font-family: var(--font-family-mono); font-size: var(--font-size-sm); color: var(--vauth-color-text-muted); }
+.vauth-token-countdown.vauth-warn { color: var(--vauth-color-warn); }
+
+/* ─── Org switcher ────────────────────────────────────────────────── */
+.vauth-org-switcher { display: flex; flex-direction: column; gap: var(--space-2); }
+
+/* ─── Spinners ────────────────────────────────────────────────────── */
+.vauth-loading-spinner { display: inline-flex; color: var(--vauth-color-primary); }
+.vauth-loading { color: var(--vauth-color-text-muted); padding: var(--space-3); font-size: var(--font-size-sm); }
+
+/* ─── Members table ───────────────────────────────────────────────── */
+.vauth-members-table { width: 100%; border-collapse: collapse; }
+.vauth-members-table th, .vauth-members-table td { text-align: left; padding: var(--space-3) var(--space-2); border-bottom: 1px solid var(--color-border); font-size: var(--font-size-sm); }
+.vauth-members-table th { color: var(--vauth-color-text-muted); font-weight: 500; }
+.vauth-members-email { color: var(--vauth-color-text-muted); font-size: var(--font-size-xs); }
+.vauth-members-empty, .vauth-members-loading { color: var(--vauth-color-text-muted); padding: var(--space-4); text-align: center; }
+
+/* ─── Invitations ─────────────────────────────────────────────────── */
+.vauth-invitations-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.vauth-invitation-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--vauth-radius);
+}
+.vauth-invitation-title { font-weight: 600; }
+.vauth-invitation-meta { color: var(--vauth-color-text-muted); font-size: var(--font-size-xs); margin-top: 2px; }
+.vauth-invitation-actions { display: flex; gap: var(--space-2); }
+.vauth-invitations-empty { color: var(--vauth-color-text-muted); padding: var(--space-4); text-align: center; }
+.vauth-invitations-admin-table { width: 100%; border-collapse: collapse; }
+.vauth-invitations-admin-table th, .vauth-invitations-admin-table td { text-align: left; padding: var(--space-3) var(--space-2); border-bottom: 1px solid var(--color-border); font-size: var(--font-size-sm); }
+.vauth-invitations-admin-table th { color: var(--vauth-color-text-muted); font-weight: 500; }
+
+.vauth-invitation-accept-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--vauth-radius);
+    padding: var(--space-6);
+    max-width: 420px;
+}
+.vauth-invitation-accept-title { margin: 0 0 var(--space-2); font-size: var(--font-size-lg); }
+.vauth-invitation-accept-text { color: var(--vauth-color-text-muted); margin: 0 0 var(--space-4); }
+
+/* ─── Role editor ─────────────────────────────────────────────────── */
+.vauth-role-editor { display: grid; grid-template-columns: 260px 1fr; gap: var(--space-5); }
+@media (max-width: 720px) { .vauth-role-editor { grid-template-columns: 1fr; } }
+.vauth-role-list header { display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-2); border-bottom: 1px solid var(--color-border); }
+.vauth-role-list header h4 { margin: 0; }
+.vauth-role-list ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; margin-top: var(--space-2); }
+.vauth-role-list li { padding: var(--space-2) var(--space-3); border-radius: var(--vauth-radius-sm); cursor: pointer; transition: background 100ms ease; }
+.vauth-role-list li:hover { background: var(--color-bg-hover); }
+.vauth-role-list-item-selected { background: var(--color-bg-hover); }
+.vauth-role-list-name { font-weight: 500; font-size: var(--font-size-sm); }
+.vauth-role-list-code { color: var(--vauth-color-text-muted); font-family: var(--font-family-mono); font-size: var(--font-size-xs); }
+.vauth-role-edit form { display: flex; flex-direction: column; gap: var(--space-4); }
+.vauth-perm-picker { border: 1px solid var(--color-border); border-radius: var(--vauth-radius); padding: var(--space-3); max-height: 360px; overflow-y: auto; }
+.vauth-perm-picker legend { padding: 0 var(--space-2); color: var(--vauth-color-text-muted); font-size: var(--font-size-sm); }
+.vauth-perm-picker-item { display: flex; align-items: baseline; gap: var(--space-2); padding: 4px 0; font-size: var(--font-size-sm); }
+.vauth-perm-code { font-family: var(--font-family-mono); font-size: var(--font-size-xs); }
+.vauth-perm-name { color: var(--vauth-color-text-muted); font-size: var(--font-size-xs); }
+.vauth-form-actions { display: flex; gap: var(--space-3); }
+
+/* ─── Users table (admin) ─────────────────────────────────────────── */
+.vauth-users-table { display: flex; flex-direction: column; gap: var(--space-3); }
+.vauth-users-table-header { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.vauth-users-table-header input { max-width: 320px; }
+.vauth-users-table-count { color: var(--vauth-color-text-muted); font-size: var(--font-size-sm); }
+.vauth-users-table table { width: 100%; border-collapse: collapse; }
+.vauth-users-table th, .vauth-users-table td { text-align: left; padding: var(--space-3) var(--space-2); border-bottom: 1px solid var(--color-border); font-size: var(--font-size-sm); }
+.vauth-users-table th { color: var(--vauth-color-text-muted); font-weight: 500; }
+.vauth-users-table-row { cursor: pointer; transition: background 100ms ease; }
+.vauth-users-table-row:hover { background: var(--color-bg-hover); }
+.vauth-users-table-row:focus-visible { outline: 2px solid var(--vauth-color-primary); outline-offset: -2px; }
+.vauth-users-table-empty { color: var(--vauth-color-text-muted); text-align: center; padding: var(--space-6); }
+.vauth-users-table-footer { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding-top: var(--space-2); font-size: var(--font-size-sm); color: var(--vauth-color-text-muted); }
+
+/* ─── Admin user edit panel ──────────────────────────────────────── */
+.vauth-admin-user-edit { display: flex; flex-direction: column; gap: var(--space-5); }
+.vauth-admin-user-edit-header { display: flex; align-items: center; gap: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border); }
+.vauth-admin-user-edit-name { margin: 0; font-size: var(--font-size-xl); }
+.vauth-admin-user-edit-email { color: var(--vauth-color-text-muted); font-size: var(--font-size-sm); }
+
+/* ─── Password strength meter ─────────────────────────────────────── */
+.vauth-pw-meter { display: flex; align-items: center; gap: var(--space-2); margin-top: 6px; }
+.vauth-pw-meter-bar { flex: 1; height: 4px; background: var(--color-bg-hover); border-radius: 999px; overflow: hidden; }
+.vauth-pw-meter-fill { height: 100%; transition: width 150ms ease, background 150ms ease; }
+.vauth-pw-meter-label { font-size: var(--font-size-xs); color: var(--vauth-color-text-muted); min-width: 48px; }
+.vauth-pw-meter-1 .vauth-pw-meter-fill { background: var(--vauth-color-danger); }
+.vauth-pw-meter-2 .vauth-pw-meter-fill { background: var(--vauth-color-warn); }
+.vauth-pw-meter-3 .vauth-pw-meter-fill { background: #6fb98e; }
+.vauth-pw-meter-4 .vauth-pw-meter-fill { background: var(--vauth-color-success); }
+
+/* ─── Danger banner (delete account) ──────────────────────────────── */
+.vauth-danger-banner {
+    background: rgba(229, 72, 77, 0.10);
+    border: 1px solid rgba(229, 72, 77, 0.35);
+    color: var(--vauth-color-danger);
+    border-radius: var(--vauth-radius);
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--font-size-sm);
+    line-height: 1.45;
+}
+
+/* ─── Audit-log table ─────────────────────────────────────────────── */
+.vauth-audit-table { display: flex; flex-direction: column; gap: var(--space-3); }
+.vauth-audit-table-header { display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap; }
+.vauth-audit-table-header input { max-width: 240px; }
+.vauth-audit-table-count { margin-left: auto; color: var(--vauth-color-text-muted); font-size: var(--font-size-sm); }
+.vauth-audit-table table { width: 100%; border-collapse: collapse; }
+.vauth-audit-table th, .vauth-audit-table td { text-align: left; padding: var(--space-2) var(--space-2); border-bottom: 1px solid var(--color-border); font-size: var(--font-size-sm); vertical-align: top; }
+.vauth-audit-table th { color: var(--vauth-color-text-muted); font-weight: 500; }
+.vauth-audit-details {
+    margin: 0;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-xs);
+    color: var(--vauth-color-text-muted);
+    white-space: pre-wrap;
+    max-height: 80px;
+    overflow-y: auto;
+}
+.vauth-audit-empty { text-align: center; padding: var(--space-6); color: var(--vauth-color-text-muted); }
+.vauth-audit-table-footer { display: flex; align-items: center; justify-content: space-between; padding-top: var(--space-2); font-size: var(--font-size-sm); color: var(--vauth-color-text-muted); }
+
+/* ─── Section variant for danger zone ─────────────────────────────── */
+.vauth-section-danger { border-color: rgba(229, 72, 77, 0.3); }

@@ -1,0 +1,1 @@
+{"version":3,"file":"refresh-mutex.d.ts","sourceRoot":"","sources":["../../src/core/refresh-mutex.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;;;;;;;;;;;;;;;GAwBG;AAEH,qBAAa,YAAY,CAAC,CAAC;IACvB,OAAO,CAAC,QAAQ,CAA2B;IAE3C;;;;;;;;;OASG;IACH,GAAG,CAAC,EAAE,EAAE,MAAM,OAAO,CAAC,CAAC,CAAC,GAAG,OAAO,CAAC,CAAC,CAAC;IAgBrC,oEAAoE;IACpE,OAAO,IAAI,OAAO,CAAC,CAAC,CAAC,GAAG,IAAI;CAG/B"}

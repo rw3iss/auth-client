@@ -1,0 +1,14 @@
+/* @vendidit/auth-client/styles — one-line import for consumers.
+ *
+ *   import '@vendidit/auth-client/styles';
+ *
+ * Pulls in both:
+ *   - tokens.css     — CSS-variable defaults (re-themeable)
+ *   - components.css — the .vauth-* selectors that every <LoginForm>,
+ *                      <RegisterForm>, <UserMenu>, etc. emits
+ *
+ * Import either of those subpaths individually if you only need one half
+ * (e.g. you ship your own tokens and only want the component rules).
+ */
+@import "./tokens.css";
+@import "./components.css";

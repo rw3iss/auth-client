@@ -1,0 +1,101 @@
+/**
+ * Default TokenStore: localStorage with a namespaced key.
+ *
+ * Why localStorage and not sessionStorage / cookies?
+ *
+ *   - sessionStorage: scoped to one tab. We want cross-tab sync (multiple
+ *     tabs of the same app sharing the session), which sessionStorage
+ *     doesn't support.
+ *   - cookies (Secure, HttpOnly): the safest option in principle — JS
+ *     can't read the token, so an XSS payload can't exfiltrate it.
+ *     BUT: HttpOnly cookies require the server to set them, the SDK
+ *     can't read them at all, and refresh-rotation needs JS read access
+ *     (we send the refresh token in a request body). HttpOnly cookies
+ *     work for the access token alone (server attaches; SDK never sees
+ *     it) but split tokens between two storage mechanisms.
+ *   - localStorage: readable + writable from JS, persistent across tabs
+ *     and reloads, simple. XSS is the threat model — but if your app
+ *     has XSS, the attacker can hit any in-process auth header anyway.
+ *
+ * For the marketplace use case (first-party auth on a known origin), the
+ * tradeoff lands on localStorage with CSP + COOP/COEP + sanitized inputs
+ * as the XSS mitigation strategy.
+ *
+ * Operators who want HttpOnly cookies can swap in a custom TokenStore;
+ * the SDK's port architecture is designed for exactly that.
+ */
+
+import type { StoredTokens, TokenStore } from '../types.js';
+
+const TOKEN_KEY = 'tokens';
+
+export class LocalStorageTokenStore implements TokenStore {
+    private readonly key: string;
+
+    constructor(namespace: string) {
+        // The full key is "<namespace>:tokens". Letting consumers set the
+        // namespace lets two installs of the SDK on one origin (e.g.,
+        // marketplace + admin) coexist without collisions.
+        this.key = `${namespace}:${TOKEN_KEY}`;
+    }
+
+    async get(): Promise<StoredTokens | null> {
+        if (!hasLocalStorage()) return null;
+        const raw = window.localStorage.getItem(this.key);
+        if (!raw) return null;
+        try {
+            const parsed = JSON.parse(raw) as StoredTokens;
+            if (
+                typeof parsed.access_token !== 'string' ||
+                typeof parsed.refresh_token !== 'string' ||
+                typeof parsed.expires_at_seconds !== 'number'
+            ) {
+                return null;
+            }
+            return parsed;
+        } catch {
+            // Corrupt entry — treat as logged-out and clear so subsequent
+            // reads don't keep tripping over the same garbage.
+            window.localStorage.removeItem(this.key);
+            return null;
+        }
+    }
+
+    async set(tokens: StoredTokens): Promise<void> {
+        if (!hasLocalStorage()) return;
+        window.localStorage.setItem(this.key, JSON.stringify(tokens));
+    }
+
+    async clear(): Promise<void> {
+        if (!hasLocalStorage()) return;
+        window.localStorage.removeItem(this.key);
+    }
+}
+
+/**
+ * MemoryTokenStore — non-persistent backing for SSR / tests. Useful when
+ * the SDK is instantiated in a Node context (server-rendered initial
+ * paint) where touching localStorage would throw.
+ */
+export class MemoryTokenStore implements TokenStore {
+    private tokens: StoredTokens | null = null;
+    async get(): Promise<StoredTokens | null> {
+        return this.tokens;
+    }
+    async set(tokens: StoredTokens): Promise<void> {
+        this.tokens = tokens;
+    }
+    async clear(): Promise<void> {
+        this.tokens = null;
+    }
+}
+
+function hasLocalStorage(): boolean {
+    try {
+        return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
+    } catch {
+        // Some environments throw on bare access to window.localStorage
+        // (privacy-mode Safari historically). Treat as "not available."
+        return false;
+    }
+}

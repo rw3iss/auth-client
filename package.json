@@ -1,0 +1,125 @@
+{
+  "name": "@vendidit/auth-client",
+  "version": "0.4.0",
+  "description": "Framework-agnostic browser SDK for @vendidit/auth-server — password + SSO/PKCE + TOTP + impersonation, refresh-rotation, cross-tab sync. Vanilla TS core with first-class React / Preact / Solid / Vue / Astro adapters.",
+  "keywords": [
+    "vendidit",
+    "auth",
+    "authentication",
+    "oauth2",
+    "pkce",
+    "jwt",
+    "sso",
+    "totp",
+    "browser",
+    "sdk",
+    "react",
+    "preact",
+    "solid",
+    "vue",
+    "astro"
+  ],
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vendidit/auth-client.git"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/framework-adapters/react/index.d.ts",
+      "default": "./dist/framework-adapters/react/index.js"
+    },
+    "./preact": {
+      "types": "./dist/framework-adapters/preact/index.d.ts",
+      "default": "./dist/framework-adapters/preact/index.js"
+    },
+    "./preact/ui": {
+      "types": "./dist/framework-adapters/preact/components/index.d.ts",
+      "default": "./dist/framework-adapters/preact/components/index.js"
+    },
+    "./preact/ui/atoms": {
+      "types": "./dist/framework-adapters/preact/components/atoms/index.d.ts",
+      "default": "./dist/framework-adapters/preact/components/atoms/index.js"
+    },
+    "./preact/ui/forms": {
+      "types": "./dist/framework-adapters/preact/components/forms/index.d.ts",
+      "default": "./dist/framework-adapters/preact/components/forms/index.js"
+    },
+    "./preact/ui/flows": {
+      "types": "./dist/framework-adapters/preact/components/flows/index.d.ts",
+      "default": "./dist/framework-adapters/preact/components/flows/index.js"
+    },
+    "./solid": {
+      "types": "./dist/framework-adapters/solid/index.d.ts",
+      "default": "./dist/framework-adapters/solid/index.js"
+    },
+    "./vue": {
+      "types": "./dist/framework-adapters/vue/index.d.ts",
+      "default": "./dist/framework-adapters/vue/index.js"
+    },
+    "./astro": {
+      "types": "./dist/framework-adapters/astro/index.d.ts",
+      "default": "./dist/framework-adapters/astro/index.js"
+    },
+    "./styles": "./src/styles/index.css",
+    "./styles/tokens": "./src/styles/tokens.css",
+    "./styles/components": "./src/styles/components.css"
+  },
+  "files": [
+    "dist/**",
+    "src/**",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx tests/*.test.ts",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "preact": ">=10",
+    "react": ">=18",
+    "solid-js": ">=1.8",
+    "vue": ">=3.4"
+  },
+  "peerDependenciesMeta": {
+    "preact": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "solid-js": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@vendidit/auth-shared": "github:Vendidit/auth-shared"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "preact": "^10.24.3",
+    "react": "^18.3.1",
+    "solid-js": "^1.9.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.13"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "sideEffects": false
+}

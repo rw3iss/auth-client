@@ -1,0 +1,158 @@
+/* @vendidit/auth-client/styles/tokens.css
+ *
+ * CSS variable defaults for every component class in components.css.
+ * Consumers re-theme by overriding any of these variables at a higher
+ * specificity (`:root`, a page-level selector, a wrapper class …).
+ *
+ * The library DOES NOT touch html / body / a / * — that's a host-app
+ * concern. Importing this file is safe alongside any host stylesheet.
+ *
+ * `tokens.css` was moved out of `auth-client-demo/src/styles/`
+ * (formerly a private copy) and into the library so every consumer
+ * inherits the same defaults.
+ */
+
+/* Design tokens — single source of truth for the demo site AND the
+ * `vauth-*` SDK components. Components read these via var(); override
+ * them at any scope to retheme (per page, per app, dark mode, etc.). */
+
+:root {
+    /* Spacing scale (4px base, multiples of 4). */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+
+    /* Type scale. */
+    --font-size-xs: 12px;
+    --font-size-sm: 13px;
+    --font-size-base: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 22px;
+    --font-size-2xl: 28px;
+    --font-size-3xl: 36px;
+
+    --font-family-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Consolas, monospace;
+
+    /* Radii. */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-pill: 999px;
+
+    /* Shadows (light defaults; dark block overrides). */
+    --shadow-sm: 0 1px 2px rgba(15, 25, 50, 0.08);
+    --shadow-md: 0 4px 14px rgba(15, 25, 50, 0.1);
+    --shadow-lg: 0 14px 36px rgba(15, 25, 50, 0.14);
+
+    /* Color palette — neutral cool gray. LIGHT IS THE DEFAULT; the dark
+     * block below opts in via the host's theme selector. (Previously the
+     * defaults here were dark, which leaked into light-mode hosts that
+     * only toggle a `.dark` class.) */
+    --color-bg: #f7f8fb;
+    --color-bg-elev: #ffffff;
+    --color-bg-card: #ffffff;
+    --color-bg-hover: #eef1f6;
+    --color-border: #e1e5ee;
+    --color-border-strong: #c8cfdd;
+
+    --color-text: #1a1f2e;
+    --color-text-muted: #4d5567;
+    --color-text-dim: #7a8195;
+
+    --color-primary: #5b8def;
+    --color-primary-hover: #7aa3f7;
+    --color-primary-text: #ffffff;
+
+    --color-success: #2ec27e;
+    --color-warn: #f5a524;
+    --color-danger: #e5484d;
+    --color-danger-hover: #f0626a;
+
+    /* Tinted-background variants — same hue as the source color but
+     * with low alpha, for surfaces like hints, banners, toast pills,
+     * and "active" pressed-state buttons. Keep them as `rgba()` (not
+     * `color-mix()`) so older Safari + email clients are happy. */
+    --color-primary-bg-subtle: rgba(91, 141, 239, 0.08);
+    --color-success-bg-subtle: rgba(46, 194, 126, 0.15);
+    --color-success-border-subtle: rgba(46, 194, 126, 0.3);
+    --color-warn-bg-subtle: rgba(245, 165, 36, 0.14);
+
+    /* Code-block surface. Deliberately decoupled from `--color-bg` so
+     * code snippets stay dark (IDE-style) even under a light theme. */
+    --color-code-bg: #0a0c10;
+    --color-code-text: #e8eaf0;
+
+    /* SSO "dark button" palette — Sign-in-with-Apple / GitHub /
+     * "Continue with X" buttons that stay dark by brand convention,
+     * regardless of light/dark site theme. */
+    --color-sso-dark-bg: #18181b;
+    --color-sso-dark-hover: #232328;
+    --color-sso-dark-border: #2a2a30;
+
+    /* Focus ring. Used by every interactive demo-chrome element so
+     * keyboard navigation gets a consistent indicator. */
+    --outline-focus: 2px solid var(--color-primary);
+    --outline-focus-offset: 2px;
+
+    /* SDK-component variable aliases. */
+    --vauth-color-primary: var(--color-primary);
+    --vauth-color-primary-hover: var(--color-primary-hover);
+    --vauth-color-success: var(--color-success);
+    --vauth-color-warn: var(--color-warn);
+    --vauth-color-danger: var(--color-danger);
+    --vauth-color-text: var(--color-text);
+    --vauth-color-text-muted: var(--color-text-muted);
+    --vauth-color-bg-card: var(--color-bg-card);
+    --vauth-color-border: var(--color-border);
+    --vauth-radius: var(--radius-md);
+    --vauth-radius-sm: var(--radius-sm);
+    --vauth-space: var(--space-3);
+}
+
+/* Dark theme — opt in via ANY of these on an ancestor (matches whatever
+ * convention the host already uses to flip dark mode). Only the
+ * `--color-*` change; the `--vauth-*` aliases reference these live, so
+ * they follow automatically. `--color-sso-dark-*` + `--color-code-bg`
+ * intentionally stay dark in both themes. An explicit `[data-theme="light"]`
+ * still forces light (re-states the defaults). */
+.dark,
+[data-theme="dark"],
+[data-vauth-theme="dark"] {
+    --color-bg: #0b0d12;
+    --color-bg-elev: #12151c;
+    --color-bg-card: #1a1e27;
+    --color-bg-hover: #232732;
+    --color-border: #2a2f3c;
+    --color-border-strong: #3a4051;
+    --color-text: #e8eaf0;
+    --color-text-muted: #9ba3b4;
+    --color-text-dim: #6b7385;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] {
+    --color-bg: #f7f8fb;
+    --color-bg-elev: #ffffff;
+    --color-bg-card: #ffffff;
+    --color-bg-hover: #eef1f6;
+    --color-border: #e1e5ee;
+    --color-border-strong: #c8cfdd;
+    --color-text: #1a1f2e;
+    --color-text-muted: #4d5567;
+    --color-text-dim: #7a8195;
+    --shadow-sm: 0 1px 2px rgba(15, 25, 50, 0.08);
+    --shadow-md: 0 4px 14px rgba(15, 25, 50, 0.1);
+    --shadow-lg: 0 14px 36px rgba(15, 25, 50, 0.14);
+}
