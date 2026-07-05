@@ -1,8 +1,8 @@
-# @vendidit/auth-client
+# @rw3iss/auth-client
 
-📚 **Full documentation**: [docs.auth.vendidit.com](https://docs.auth.vendidit.com/auth-client/overview/)
+📚 **Full documentation**: [docs.auth.ryanweiss.net](https://docs.auth.ryanweiss.net/auth-client/overview/)
 
-Framework-agnostic browser SDK for [`@vendidit/auth-server`](../auth-server). Vanilla TypeScript core with first-class adapters for **React, Preact, SolidJS, Vue, and Astro**. Hexagonal architecture — every external dependency is an injectable port with a browser-native default. Designed to compose into the broader Vendidit marketplace SDK.
+Framework-agnostic browser SDK for [`@rw3iss/auth-server`](../auth-server). Vanilla TypeScript core with first-class adapters for **React, Preact, SolidJS, Vue, and Astro**. Hexagonal architecture — every external dependency is an injectable port with a browser-native default. Designed to compose into the broader rw3iss marketplace SDK.
 
 ---
 
@@ -25,7 +25,7 @@ Framework-agnostic browser SDK for [`@vendidit/auth-server`](../auth-server). Va
 ## Install
 
 ```bash
-pnpm add @vendidit/auth-client
+pnpm add @rw3iss/auth-client
 # Plus your framework of choice (peer dep):
 pnpm add react           # OR preact, solid-js, vue
 ```
@@ -35,10 +35,10 @@ pnpm add react           # OR preact, solid-js, vue
 ## Quick start (vanilla)
 
 ```ts
-import { createAuthClient } from '@vendidit/auth-client';
+import { createAuthClient } from '@rw3iss/auth-client';
 
 const auth = createAuthClient({
-    apiBaseUrl: 'https://auth.vendidit.com/api/v1',
+    apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
     appCode: 'marketplace-buyer',
     bootstrap: 'auto', // default — validates cached session at boot
 });
@@ -103,11 +103,11 @@ Each adapter wraps the core in framework-idiomatic primitives. APIs are intentio
 
 ```tsx
 // app.tsx
-import { createAuthClient } from '@vendidit/auth-client';
-import { AuthProvider, useAuth, useLogin } from '@vendidit/auth-client/react';
+import { createAuthClient } from '@rw3iss/auth-client';
+import { AuthProvider, useAuth, useLogin } from '@rw3iss/auth-client/react';
 
 const auth = createAuthClient({
-    apiBaseUrl: 'https://auth.vendidit.com/api/v1',
+    apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
     appCode: 'marketplace-buyer',
 });
 
@@ -150,7 +150,7 @@ function LoginForm() {
 }
 ```
 
-Hooks available (`@vendidit/auth-client/react`):
+Hooks available (`@rw3iss/auth-client/react`):
 
 - State: `useAuth`, `useUser`, `useAuthStatus`, `useAuthReady`, `useIsAuthenticated`, `useAuthClient`
 - Actions: `useLogin`, `useRegister`, `useLogout`, `useLogoutAll`, `useStartSso`, `useCompleteSso`, `useRefreshTokens`, `useWhoami`, `useSetupTwoFactor`, `useEnableTwoFactor`, `useDisableTwoFactor`, `useImpersonate`, `useHardDeleteUser`
@@ -166,11 +166,11 @@ API is identical to the React adapter — uses `preact/hooks` + `preact/compat`'
 
 ```tsx
 // app.tsx
-import { createAuthClient } from '@vendidit/auth-client';
-import { AuthProvider, useAuth, useLogin } from '@vendidit/auth-client/preact';
+import { createAuthClient } from '@rw3iss/auth-client';
+import { AuthProvider, useAuth, useLogin } from '@rw3iss/auth-client/preact';
 
 const auth = createAuthClient({
-    apiBaseUrl: 'https://auth.vendidit.com/api/v1',
+    apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
     appCode: 'marketplace-buyer',
 });
 
@@ -210,7 +210,7 @@ function LoginForm() {
 }
 ```
 
-Hooks available (`@vendidit/auth-client/preact`): same names as React.
+Hooks available (`@rw3iss/auth-client/preact`): same names as React.
 
 </details>
 
@@ -222,11 +222,11 @@ Solid's fine-grained reactivity — state hooks return Accessors (`user()`, not 
 ```tsx
 // app.tsx
 import { Show } from 'solid-js';
-import { createAuthClient } from '@vendidit/auth-client';
-import { AuthProvider, useAuth, createLogin } from '@vendidit/auth-client/solid';
+import { createAuthClient } from '@rw3iss/auth-client';
+import { AuthProvider, useAuth, createLogin } from '@rw3iss/auth-client/solid';
 
 const auth = createAuthClient({
-    apiBaseUrl: 'https://auth.vendidit.com/api/v1',
+    apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
     appCode: 'marketplace-buyer',
 });
 
@@ -271,7 +271,7 @@ function LoginForm() {
 }
 ```
 
-Available (`@vendidit/auth-client/solid`):
+Available (`@rw3iss/auth-client/solid`):
 
 - State: `useAuth`, `useUser`, `useAuthStatus`, `useAuthReady`, `useIsAuthenticated`, `useAuthClient`
 - Actions: `createLogin`, `createRegister`, `createLogout`, `createLogoutAll`, `createStartSso`, `createCompleteSso`, `createRefreshTokens`, `createWhoami`, `createSetupTwoFactor`, `createEnableTwoFactor`, `createDisableTwoFactor`, `createImpersonate`, `createHardDeleteUser`
@@ -286,12 +286,12 @@ Plugin-based DI. State composables return `ComputedRef`; action composables expo
 ```ts
 // main.ts
 import { createApp } from 'vue';
-import { createAuthClient } from '@vendidit/auth-client';
-import { AuthPlugin } from '@vendidit/auth-client/vue';
+import { createAuthClient } from '@rw3iss/auth-client';
+import { AuthPlugin } from '@rw3iss/auth-client/vue';
 import App from './App.vue';
 
 const auth = createAuthClient({
-    apiBaseUrl: 'https://auth.vendidit.com/api/v1',
+    apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
     appCode: 'marketplace-buyer',
 });
 
@@ -301,7 +301,7 @@ createApp(App).use(AuthPlugin, { client: auth }).mount('#app');
 ```vue
 <!-- Shell.vue -->
 <script setup lang="ts">
-import { useAuth } from '@vendidit/auth-client/vue';
+import { useAuth } from '@rw3iss/auth-client/vue';
 const { user, ready } = useAuth();
 </script>
 
@@ -316,7 +316,7 @@ const { user, ready } = useAuth();
 <!-- LoginForm.vue -->
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useLogin } from '@vendidit/auth-client/vue';
+import { useLogin } from '@rw3iss/auth-client/vue';
 
 const login = useLogin();
 const email = ref('');
@@ -339,7 +339,7 @@ async function submit() {
 </template>
 ```
 
-Available (`@vendidit/auth-client/vue`):
+Available (`@rw3iss/auth-client/vue`):
 
 - Plugin: `AuthPlugin`
 - State: `useAuth`, `useUser`, `useAuthStatus`, `useAuthReady`, `useIsAuthenticated`, `useAuthClient`
@@ -358,11 +358,11 @@ Two layers:
 ```astro
 ---
 // src/pages/dashboard.astro
-import { getServerAuth } from '@vendidit/auth-client/astro';
+import { getServerAuth } from '@rw3iss/auth-client/astro';
 
 const auth = await getServerAuth(Astro.request, {
     apiBaseUrl: import.meta.env.AUTH_API_URL,
-    cookieName: 'vendidit_access_token',
+    cookieName: 'rw3iss_access_token',
     validateOnServer: true, // hit /auth/me to confirm server-side validity
 });
 
@@ -379,8 +379,8 @@ if (!auth.isAuthenticated) {
 
 ```tsx
 // src/components/DashboardIsland.tsx (a Solid island; same shape for React/Preact/Vue)
-import { createAuthClient } from '@vendidit/auth-client';
-import { AuthProvider, useAuth, createLogout } from '@vendidit/auth-client/solid';
+import { createAuthClient } from '@rw3iss/auth-client';
+import { AuthProvider, useAuth, createLogout } from '@rw3iss/auth-client/solid';
 
 const auth = createAuthClient({
     apiBaseUrl: import.meta.env.PUBLIC_AUTH_API_URL,
@@ -425,7 +425,7 @@ import {
     SsoButton, SignInWithGoogleButton, SsoButtonGroup,
     ProtectedRoute, GuestOnly, RoleGate, PermissionGate,
     AuthLoading, TokenExpiryCountdown,
-} from '@vendidit/auth-client/preact/ui/atoms';
+} from '@rw3iss/auth-client/preact/ui/atoms';
 
 // Forms / views
 import {
@@ -434,7 +434,7 @@ import {
     EmailVerificationNotice,
     TwoFactorEnrollment, TwoFactorDisableForm,
     SessionsList, UserProfileCard, OrgSwitcher, UserLookupTable,
-} from '@vendidit/auth-client/preact/ui/forms';
+} from '@rw3iss/auth-client/preact/ui/forms';
 
 // Full-screen end-to-end flows
 import {
@@ -442,7 +442,7 @@ import {
     CompletePasswordResetFlow, CompleteAccountSecurityFlow,
     CompleteSsoCallbackFlow, CompleteEmailVerificationFlow,
     CompleteImpersonationFlow,
-} from '@vendidit/auth-client/preact/ui/flows';
+} from '@rw3iss/auth-client/preact/ui/flows';
 
 // CompleteEmailVerificationFlow — mount on /auth/verify-email (the route the
 // server's verification emails link to, built from the app's `frontend_url`).
@@ -451,7 +451,7 @@ import {
 // links onward (e.g. to your sign-in route).
 
 // Or import everything at once:
-import { LoginForm, CompleteLoginFlow } from '@vendidit/auth-client/preact/ui';
+import { LoginForm, CompleteLoginFlow } from '@rw3iss/auth-client/preact/ui';
 ```
 
 Every component is a thin layer over the core SDK — they call the same `useLogin`/`useRegister`/etc. hooks the headless API exposes. State, error surfacing, and snapshot reactivity all flow through `AuthClient`; the UI components add only markup + minimal local state. That means you can mix them freely with your own custom forms in the same app.
@@ -460,15 +460,15 @@ Styling reads from CSS variables (`--vauth-color-primary`, `--vauth-radius`, etc
 
 ```ts
 // Anywhere in your app bootstrap (Vite / webpack / Astro / Next):
-import '@vendidit/auth-client/styles';            // tokens + components
+import '@rw3iss/auth-client/styles';            // tokens + components
 // Or, granular:
-import '@vendidit/auth-client/styles/tokens';     // only the CSS variable defaults
-import '@vendidit/auth-client/styles/components'; // only the .vauth-* selectors
+import '@rw3iss/auth-client/styles/tokens';     // only the CSS variable defaults
+import '@rw3iss/auth-client/styles/components'; // only the .vauth-* selectors
 ```
 
 Re-theme by overriding any `--vauth-*` variable at any scope (`:root`, a wrapper class, a single page). The stylesheets touch only the `.vauth-*` classes — they don't reset `html` / `body` / `*`, so they coexist with any host theme.
 
-The demo site at [`Vendidit/auth-client-demo`](https://github.com/Vendidit/auth-client-demo) renders every component live with copy-paste snippets — start there to see what each one looks like and how to integrate it.
+The demo site at [`rw3iss/auth-client-demo`](https://github.com/rw3iss/auth-client-demo) renders every component live with copy-paste snippets — start there to see what each one looks like and how to integrate it.
 
 ---
 
@@ -477,12 +477,12 @@ The demo site at [`Vendidit/auth-client-demo`](https://github.com/Vendidit/auth-
 ```ts
 const auth = createAuthClient({
     /** Required. */
-    apiBaseUrl: 'https://auth.vendidit.com/api/v1',
+    apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
 
     /** App scoping — required by auth-server unless AUTH_ALLOW_BASE_USER_LOGIN is set. */
     appCode: 'marketplace-buyer',
 
-    /** Storage namespace prefix. Default 'vendidit_auth'. */
+    /** Storage namespace prefix. Default 'rw3iss_auth'. */
     storageNamespace: 'marketplace_buyer_auth',
 
     /** Seconds before expiry to preemptively refresh. Default 60. */
@@ -527,7 +527,7 @@ const auth = createAuthClient({
 **HttpOnly cookies** (server-set, JS-invisible access token):
 
 ```ts
-import type { TokenStore } from '@vendidit/auth-client';
+import type { TokenStore } from '@rw3iss/auth-client';
 
 class CookieTokenStore implements TokenStore {
     async get() {
@@ -550,7 +550,7 @@ const auth = createAuthClient({
 **SSR / Node**:
 
 ```ts
-import { createAuthClient, MemoryTokenStore, MemoryStorage } from '@vendidit/auth-client';
+import { createAuthClient, MemoryTokenStore, MemoryStorage } from '@rw3iss/auth-client';
 
 const auth = createAuthClient({
     apiBaseUrl: '…',
@@ -565,7 +565,7 @@ const auth = createAuthClient({
 **Tests** (deterministic clock, instrumented transport):
 
 ```ts
-import { FixedClock, MemoryTokenStore, MemoryStorage, type Transport } from '@vendidit/auth-client';
+import { FixedClock, MemoryTokenStore, MemoryStorage, type Transport } from '@rw3iss/auth-client';
 
 const transport: Transport = {
     async request(req) { /* return canned responses keyed on req.url */ },
@@ -623,11 +623,11 @@ await auth.services.revoke(client.id);                  // soft-revoke
 Preact hooks: `useListM2MClients`, `useGetM2MClient`,
 `useCreateM2MClient`, `useRevokeM2MClient`. Types
 (`M2MClientRecord`, `CreateM2MClientRequest/Response`) live in
-`@vendidit/auth-shared/dto` and are re-exported here. The
+`@rw3iss/auth-shared/dto` and are re-exported here. The
 client_credentials *grant* itself is intentionally **not** in this
 browser SDK — minting service tokens requires the secret, which never
 belongs in a browser; use the backend SDKs
-(`@vendidit/auth-server-ts`/`-nest`, `vendidit/auth-server-laravel`).
+(`@rw3iss/auth-server-ts`/`-nest`, `rw3iss/auth-server-laravel`).
 
 ## User pools + membership admin (system_admin)
 
@@ -658,7 +658,7 @@ Preact hooks: `useListNamespaces`, `useGetUserNamespaces`,
 `useAdminRevokeUserApp`, `useAdminGetUserOrganizations`,
 `useAdminAddOrgMember`, `useAdminRemoveOrgMember`. Pool types
 (`NamespaceInfo`, `UserNamespacesResponse`) live in
-`@vendidit/auth-shared/dto`. `UpdateAppRequest` also accepts the
+`@rw3iss/auth-shared/dto`. `UpdateAppRequest` also accepts the
 registration-policy fields (`frontend_url`, `allowed_email_domains`,
 `allowed_auth_methods`, `default_organization_id`) — PATCH-editable
 server-side since 2026-06-10.
@@ -689,7 +689,7 @@ Slack `{"text"}` format automatically. Known events:
 ## Type contract
 
 Every wire DTO, JWT claim shape, principal type, and error code this
-package emits comes from [`@vendidit/auth-shared`](https://github.com/Vendidit/auth-shared) —
+package emits comes from [`@rw3iss/auth-shared`](https://github.com/rw3iss/auth-shared) —
 including the app-registry DTOs (`dto/app.ts`: AppRecord, AppWebhook,
 Create/UpdateAppRequest), the org-admin DTOs (`dto/org-admin.ts`:
 OrgMemberRecord, OrgRoleRecord, AdminUserOrgMembership, request

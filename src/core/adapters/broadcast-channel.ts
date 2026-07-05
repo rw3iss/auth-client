@@ -23,7 +23,7 @@
 
 import type { Broadcast, BroadcastMessage } from '../types.js';
 
-const CHANNEL_NAME = 'vendidit_auth';
+const CHANNEL_NAME = 'rw3iss_auth';
 
 export class BroadcastChannelAdapter implements Broadcast {
     private readonly channel: BroadcastChannel;

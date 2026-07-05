@@ -11,7 +11,7 @@
  * but it logs the caller out — usually surprising).
  */
 import { type FlowDeps } from './flow-deps.js';
-import type { SessionRecord } from '@vendidit/auth-shared';
+import type { SessionRecord } from '@rw3iss/auth-shared';
 export type { SessionRecord };
 export declare class SessionsFlow {
     private readonly deps;

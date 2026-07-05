@@ -3,7 +3,7 @@
  * AuthClient capability each. Tree-shake-friendly: import only what
  * you need; the rest is dropped by the bundler.
  *
- * Import path: `@vendidit/auth-client/preact/ui`
+ * Import path: `@rw3iss/auth-client/preact/ui`
  *
  * Grouping convention:
  *   - Status displays: AuthStatusBadge, UserAvatar, TokenExpiryCountdown

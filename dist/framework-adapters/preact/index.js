@@ -1,7 +1,7 @@
 /**
  * Preact adapter — public API.
  *
- * Import as: `import { AuthProvider, useAuth } from '@vendidit/auth-client/preact'`.
+ * Import as: `import { AuthProvider, useAuth } from '@rw3iss/auth-client/preact'`.
  *
  * API is identical to the React adapter; the two are interchangeable
  * from the consumer's perspective. Pick the one that matches your

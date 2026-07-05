@@ -4,8 +4,8 @@
  */
 import { type Action } from '../shared/action-state.js';
 import type { AuthClient } from '../../core/auth-client.js';
-export declare const useLogin: (client?: AuthClient) => Action<[params: import("../../index.js").LoginParams], import("@vendidit/auth-shared").AuthResponse>;
-export declare const useRegister: (client?: AuthClient) => Action<[params: import("../../index.js").RegisterParams], import("@vendidit/auth-shared").AuthResponse>;
+export declare const useLogin: (client?: AuthClient) => Action<[params: import("../../index.js").LoginParams], import("@rw3iss/auth-shared").AuthResponse>;
+export declare const useRegister: (client?: AuthClient) => Action<[params: import("../../index.js").RegisterParams], import("@rw3iss/auth-shared").AuthResponse>;
 export declare const useLogout: (client?: AuthClient) => Action<[], void>;
 export declare const useLogoutAll: (client?: AuthClient) => Action<[], void>;
 export declare const useStartSso: (client?: AuthClient) => Action<[params: import("../../index.js").SsoStartParams], import("../../index.js").SsoStartResult>;
@@ -13,9 +13,9 @@ export declare const useCompleteSso: (client?: AuthClient) => Action<[params: {
     code: string;
     state: string;
     provider?: string;
-}], import("@vendidit/auth-shared").AuthResponse>;
-export declare const useRefreshTokens: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").TokenPair>;
-export declare const useWhoami: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").User>;
+}], import("@rw3iss/auth-shared").AuthResponse>;
+export declare const useRefreshTokens: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").TokenPair>;
+export declare const useWhoami: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").User>;
 export declare const useSetupTwoFactor: (client?: AuthClient) => Action<[], {
     secret: string;
     provisioningUri: string;
@@ -25,7 +25,7 @@ export declare const useDisableTwoFactor: (client?: AuthClient) => Action<[param
     password: string;
     code: string;
 }], void>;
-export declare const useImpersonate: (client?: AuthClient) => Action<[params: import("../../index.js").ImpersonateParams], import("@vendidit/auth-shared").AuthResponse>;
+export declare const useImpersonate: (client?: AuthClient) => Action<[params: import("../../index.js").ImpersonateParams], import("@rw3iss/auth-shared").AuthResponse>;
 export declare const useHardDeleteUser: (client?: AuthClient) => Action<[params: {
     userId: string;
     reason: string;
@@ -47,22 +47,22 @@ export declare const useResendVerificationEmail: (client?: AuthClient) => Action
     email: string;
     appCode?: string;
 }], void>;
-export declare const useGetSessions: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").SessionRecord[]>;
+export declare const useGetSessions: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").SessionRecord[]>;
 export declare const useTerminateSession: (client?: AuthClient) => Action<[sessionId: string], void>;
-export declare const useGetMyOrgs: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").MyOrgRecord[]>;
+export declare const useGetMyOrgs: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").MyOrgRecord[]>;
 export declare const useGetUsersBulk: (client?: AuthClient) => Action<[req: {
     emails?: string[];
     ids?: string[];
-}], import("@vendidit/auth-shared").LookupUserRecord[]>;
-export declare const useSwitchOrg: (client?: AuthClient) => Action<[organizationId: string], import("@vendidit/auth-shared").TokenPair>;
-export declare const useGetOrg: (client?: AuthClient) => Action<[orgId: string], import("@vendidit/auth-shared").Organization>;
+}], import("@rw3iss/auth-shared").LookupUserRecord[]>;
+export declare const useSwitchOrg: (client?: AuthClient) => Action<[organizationId: string], import("@rw3iss/auth-shared").TokenPair>;
+export declare const useGetOrg: (client?: AuthClient) => Action<[orgId: string], import("@rw3iss/auth-shared").Organization>;
 export declare const useUpdateOrg: (client?: AuthClient) => Action<[params: {
     orgId: string;
-    body: import("@vendidit/auth-shared").UpdateOrgRequest;
-}], import("@vendidit/auth-shared").Organization>;
-export declare const useCreateOrg: (client?: AuthClient) => Action<[body: import("@vendidit/auth-shared").CreateOrgRequest], import("@vendidit/auth-shared").Organization>;
+    body: import("@rw3iss/auth-shared").UpdateOrgRequest;
+}], import("@rw3iss/auth-shared").Organization>;
+export declare const useCreateOrg: (client?: AuthClient) => Action<[body: import("@rw3iss/auth-shared").CreateOrgRequest], import("@rw3iss/auth-shared").Organization>;
 export declare const useDeleteOrg: (client?: AuthClient) => Action<[orgId: string], void>;
-export declare const useListOrgMembers: (client?: AuthClient) => Action<[orgId: string], import("@vendidit/auth-shared").OrgMemberRecord[]>;
+export declare const useListOrgMembers: (client?: AuthClient) => Action<[orgId: string], import("@rw3iss/auth-shared").OrgMemberRecord[]>;
 export declare const useRemoveOrgMember: (client?: AuthClient) => Action<[params: {
     orgId: string;
     userId: string;
@@ -72,38 +72,38 @@ export declare const useUpdateOrgMemberStatus: (client?: AuthClient) => Action<[
     userId: string;
     status: string;
 }], void>;
-export declare const useListOrgRoles: (client?: AuthClient) => Action<[orgId: string], import("@vendidit/auth-shared").OrgRoleRecord[]>;
+export declare const useListOrgRoles: (client?: AuthClient) => Action<[orgId: string], import("@rw3iss/auth-shared").OrgRoleRecord[]>;
 export declare const useGetOrgRole: (client?: AuthClient) => Action<[params: {
     orgId: string;
     roleId: string;
-}], import("@vendidit/auth-shared").OrgRoleRecord>;
+}], import("@rw3iss/auth-shared").OrgRoleRecord>;
 export declare const useCreateOrgRole: (client?: AuthClient) => Action<[params: {
     orgId: string;
-    body: import("@vendidit/auth-shared").CreateOrgRoleRequest;
-}], import("@vendidit/auth-shared").OrgRoleRecord>;
+    body: import("@rw3iss/auth-shared").CreateOrgRoleRequest;
+}], import("@rw3iss/auth-shared").OrgRoleRecord>;
 export declare const useUpdateOrgRole: (client?: AuthClient) => Action<[params: {
     orgId: string;
     roleId: string;
-    body: import("@vendidit/auth-shared").UpdateOrgRoleRequest;
-}], import("@vendidit/auth-shared").OrgRoleRecord>;
+    body: import("@rw3iss/auth-shared").UpdateOrgRoleRequest;
+}], import("@rw3iss/auth-shared").OrgRoleRecord>;
 export declare const useDeleteOrgRole: (client?: AuthClient) => Action<[params: {
     orgId: string;
     roleId: string;
 }], void>;
-export declare const useListAssignablePermissions: (client?: AuthClient) => Action<[orgId: string], import("@vendidit/auth-shared").AssignablePermissionRecord[]>;
+export declare const useListAssignablePermissions: (client?: AuthClient) => Action<[orgId: string], import("@rw3iss/auth-shared").AssignablePermissionRecord[]>;
 export declare const useCreateInvitation: (client?: AuthClient) => Action<[params: {
     orgId: string;
-    body: import("@vendidit/auth-shared").CreateInvitationRequest;
-}], import("@vendidit/auth-shared").InvitationRecord>;
-export declare const useListOrgInvitations: (client?: AuthClient) => Action<[orgId: string], import("@vendidit/auth-shared").InvitationRecord[]>;
+    body: import("@rw3iss/auth-shared").CreateInvitationRequest;
+}], import("@rw3iss/auth-shared").InvitationRecord>;
+export declare const useListOrgInvitations: (client?: AuthClient) => Action<[orgId: string], import("@rw3iss/auth-shared").InvitationRecord[]>;
 export declare const useRevokeInvitation: (client?: AuthClient) => Action<[params: {
     orgId: string;
     invitationId: string;
 }], void>;
-export declare const useListMyInvitations: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").InvitationRecord[]>;
-export declare const useAcceptInvitation: (client?: AuthClient) => Action<[invitationId: string], import("@vendidit/auth-shared").Organization | null>;
+export declare const useListMyInvitations: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").InvitationRecord[]>;
+export declare const useAcceptInvitation: (client?: AuthClient) => Action<[invitationId: string], import("@rw3iss/auth-shared").Organization | null>;
 export declare const useDeclineInvitation: (client?: AuthClient) => Action<[invitationId: string], void>;
-export declare const useGetRegistrationPolicy: (client?: AuthClient) => Action<[appCode?: string | undefined], import("@vendidit/auth-shared").RegistrationPolicy>;
+export declare const useGetRegistrationPolicy: (client?: AuthClient) => Action<[appCode?: string | undefined], import("@rw3iss/auth-shared").RegistrationPolicy>;
 export declare const useListUsers: (client?: AuthClient) => Action<[req?: import("../../core/flows/admin.flow.js").ListUsersRequest | undefined], import("../../core/flows/admin.flow.js").ListUsersResult>;
 /** Admin: list a target user's currently-assigned base roles. Returns `UserRoleRecord[]`. */
 export declare const useListUserRoles: (client?: AuthClient) => Action<[userId: string], import("../../core/flows/admin.flow.js").UserRoleRecord[]>;
@@ -116,7 +116,7 @@ export declare const useSetUserPassword: (client?: AuthClient) => Action<[params
     newPassword: string;
 }], void>;
 /** Admin: list every active session for a target user. Returns `SessionRecord[]`. */
-export declare const useAdminListUserSessions: (client?: AuthClient) => Action<[userId: string], import("@vendidit/auth-shared").SessionRecord[]>;
+export declare const useAdminListUserSessions: (client?: AuthClient) => Action<[userId: string], import("@rw3iss/auth-shared").SessionRecord[]>;
 /** Admin: terminate one specific session for a target user. */
 export declare const useAdminTerminateUserSession: (client?: AuthClient) => Action<[params: {
     userId: string;
@@ -130,45 +130,45 @@ export declare const useRequestMagicLink: (client?: AuthClient) => Action<[param
     email: string;
     appCode?: string;
 }], void>;
-export declare const useVerifyMagicLink: (client?: AuthClient) => Action<[token: string], import("@vendidit/auth-shared").AuthResponse>;
-export declare const useListAuditLog: (client?: AuthClient) => Action<[q?: import("@vendidit/auth-shared").AuditLogQuery | undefined], import("@vendidit/auth-shared").AuditLogResult>;
+export declare const useVerifyMagicLink: (client?: AuthClient) => Action<[token: string], import("@rw3iss/auth-shared").AuthResponse>;
+export declare const useListAuditLog: (client?: AuthClient) => Action<[q?: import("@rw3iss/auth-shared").AuditLogQuery | undefined], import("@rw3iss/auth-shared").AuditLogResult>;
 export declare const useDeleteMyAccount: (client?: AuthClient) => Action<[currentPassword: string], void>;
 /** Admin: list every org. adminChain. Returns `Organization[]`. */
-export declare const useListAllOrgs: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").Organization[]>;
+export declare const useListAllOrgs: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").Organization[]>;
 /** Admin: fetch one org via /admin/organizations/{orgId} (non-member operators allowed). */
-export declare const useAdminGetOrg: (client?: AuthClient) => Action<[orgId: string], import("@vendidit/auth-shared").Organization>;
+export declare const useAdminGetOrg: (client?: AuthClient) => Action<[orgId: string], import("@rw3iss/auth-shared").Organization>;
 /** Admin: update one org via /admin/organizations/{orgId}. */
 export declare const useAdminUpdateOrg: (client?: AuthClient) => Action<[params: {
     orgId: string;
-    body: import("@vendidit/auth-shared").UpdateOrgRequest;
-}], import("@vendidit/auth-shared").Organization>;
+    body: import("@rw3iss/auth-shared").UpdateOrgRequest;
+}], import("@rw3iss/auth-shared").Organization>;
 /** Admin: list members via /admin/organizations/{orgId}/members. */
-export declare const useAdminListOrgMembers: (client?: AuthClient) => Action<[orgId: string], import("@vendidit/auth-shared").OrgMemberRecord[]>;
+export declare const useAdminListOrgMembers: (client?: AuthClient) => Action<[orgId: string], import("@rw3iss/auth-shared").OrgMemberRecord[]>;
 /** System_admin: replace a member's org-role set (org-admin reassignment). */
 export declare const useAdminSetOrgMemberRoles: (client?: AuthClient) => Action<[params: {
     orgId: string;
     userId: string;
     roleCodes: string[];
-}], import("@vendidit/auth-shared").OrgMemberRecord>;
+}], import("@rw3iss/auth-shared").OrgMemberRecord>;
 /** Admin: list every registered app. adminChain. Returns `AppRecord[]`. */
-export declare const useListApps: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").AppRecord[]>;
+export declare const useListApps: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").AppRecord[]>;
 /** Admin: fetch one app row. adminChain. */
-export declare const useGetApp: (client?: AuthClient) => Action<[appId: string], import("@vendidit/auth-shared").AppRecord>;
+export declare const useGetApp: (client?: AuthClient) => Action<[appId: string], import("@rw3iss/auth-shared").AppRecord>;
 /** System_admin: register a new app. */
-export declare const useCreateApp: (client?: AuthClient) => Action<[body: import("@vendidit/auth-shared").CreateAppRequest], import("@vendidit/auth-shared").AppRecord>;
+export declare const useCreateApp: (client?: AuthClient) => Action<[body: import("@rw3iss/auth-shared").CreateAppRequest], import("@rw3iss/auth-shared").AppRecord>;
 /** System_admin: partial update. */
 export declare const useUpdateApp: (client?: AuthClient) => Action<[params: {
     appId: string;
-    body: import("@vendidit/auth-shared").UpdateAppRequest;
-}], import("@vendidit/auth-shared").AppRecord>;
+    body: import("@rw3iss/auth-shared").UpdateAppRequest;
+}], import("@rw3iss/auth-shared").AppRecord>;
 /** System_admin: soft-delete an app. */
 export declare const useDeleteApp: (client?: AuthClient) => Action<[appId: string], void>;
 /** System_admin: pool catalog with user counts (SDK-cached 60s). */
 export declare const useListNamespaces: (client?: AuthClient) => Action<[opts?: {
     forceRefresh?: boolean;
-} | undefined], import("@vendidit/auth-shared").NamespaceInfo[]>;
+} | undefined], import("@rw3iss/auth-shared").NamespaceInfo[]>;
 /** System_admin: a user's home pool + tag pools. */
-export declare const useGetUserNamespaces: (client?: AuthClient) => Action<[userId: string], import("@vendidit/auth-shared").UserNamespacesResponse>;
+export declare const useGetUserNamespaces: (client?: AuthClient) => Action<[userId: string], import("@rw3iss/auth-shared").UserNamespacesResponse>;
 /** System_admin: move a user's default (home) pool — 409 on email conflict. */
 export declare const useSetUserHomeNamespace: (client?: AuthClient) => Action<[params: {
     userId: string;
@@ -185,7 +185,7 @@ export declare const useRemoveUserNamespace: (client?: AuthClient) => Action<[pa
     namespace: string;
 }], void>;
 /** Admin: a user's active app memberships. */
-export declare const useAdminListUserApps: (client?: AuthClient) => Action<[userId: string], import("@vendidit/auth-shared").AppRecord[]>;
+export declare const useAdminListUserApps: (client?: AuthClient) => Action<[userId: string], import("@rw3iss/auth-shared").AppRecord[]>;
 /** Admin: grant a user access to an app (user_apps row). */
 export declare const useAdminGrantUserApp: (client?: AuthClient) => Action<[params: {
     userId: string;
@@ -197,7 +197,7 @@ export declare const useAdminRevokeUserApp: (client?: AuthClient) => Action<[par
     appId: string;
 }], void>;
 /** System_admin: every org a user belongs to, with status + roles. */
-export declare const useAdminGetUserOrganizations: (client?: AuthClient) => Action<[userId: string], import("@vendidit/auth-shared").AdminUserOrgMembership[]>;
+export declare const useAdminGetUserOrganizations: (client?: AuthClient) => Action<[userId: string], import("@rw3iss/auth-shared").AdminUserOrgMembership[]>;
 /** System_admin: add an existing user to an org (org_member fallback). */
 export declare const useAdminAddOrgMember: (client?: AuthClient) => Action<[params: {
     orgId: string;
@@ -210,12 +210,12 @@ export declare const useAdminRemoveOrgMember: (client?: AuthClient) => Action<[p
     userId: string;
 }], void>;
 /** System_admin: list non-revoked machine credentials. */
-export declare const useListM2MClients: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").M2MClientRecord[]>;
+export declare const useListM2MClients: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").M2MClientRecord[]>;
 /** System_admin: fetch one m2m client (never the secret). */
-export declare const useGetM2MClient: (client?: AuthClient) => Action<[id: string], import("@vendidit/auth-shared").M2MClientRecord>;
+export declare const useGetM2MClient: (client?: AuthClient) => Action<[id: string], import("@rw3iss/auth-shared").M2MClientRecord>;
 /** System_admin: mint a machine credential — the response's
  *  `client_secret` is visible exactly ONCE. */
-export declare const useCreateM2MClient: (client?: AuthClient) => Action<[body: import("@vendidit/auth-shared").CreateM2MClientRequest], import("@vendidit/auth-shared").CreateM2MClientResponse>;
+export declare const useCreateM2MClient: (client?: AuthClient) => Action<[body: import("@rw3iss/auth-shared").CreateM2MClientRequest], import("@rw3iss/auth-shared").CreateM2MClientResponse>;
 /** System_admin: soft-revoke a machine credential. */
 export declare const useRevokeM2MClient: (client?: AuthClient) => Action<[id: string], void>;
 //# sourceMappingURL=actions.d.ts.map

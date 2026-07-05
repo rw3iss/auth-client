@@ -18,7 +18,7 @@ import type {
     NamespaceInfo,
     ListNamespacesResponse,
     UserNamespacesResponse,
-} from '@vendidit/auth-shared/dto';
+} from '@rw3iss/auth-shared/dto';
 
 export type { NamespaceInfo, ListNamespacesResponse, UserNamespacesResponse };
 

@@ -17,8 +17,8 @@
  * <SystemAdminOnly> to hide the affordances.
  */
 import { type FlowDeps } from './flow-deps.js';
-import type { AppRecord, AppWebhook, CreateAppRequest, UpdateAppRequest, RegistrationPolicy } from '@vendidit/auth-shared/dto';
-import { APP_WEBHOOK_EVENTS } from '@vendidit/auth-shared/dto';
+import type { AppRecord, AppWebhook, CreateAppRequest, UpdateAppRequest, RegistrationPolicy } from '@rw3iss/auth-shared/dto';
+import { APP_WEBHOOK_EVENTS } from '@rw3iss/auth-shared/dto';
 export type { AppRecord, AppWebhook, CreateAppRequest, UpdateAppRequest, RegistrationPolicy };
 export { APP_WEBHOOK_EVENTS };
 export declare class AppsFlow {

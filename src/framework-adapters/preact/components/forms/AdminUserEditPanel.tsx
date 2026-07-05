@@ -7,7 +7,7 @@ import {
     useAdminResetLockout,
 } from '../../actions.js';
 import { UserAvatar } from '../atoms/UserAvatar.js';
-import { roleLabel } from '@vendidit/auth-shared/constants';
+import { roleLabel } from '@rw3iss/auth-shared/constants';
 import type { LookupUserRecord } from '../../../../core/flows/admin.flow.js';
 import type { AuthClient } from '../../../../core/auth-client.js';
 

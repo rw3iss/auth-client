@@ -1,7 +1,7 @@
 /**
  * React adapter — public API.
  *
- * Import as: `import { AuthProvider, useAuth } from '@vendidit/auth-client/react'`.
+ * Import as: `import { AuthProvider, useAuth } from '@rw3iss/auth-client/react'`.
  *
  * Shape:
  *

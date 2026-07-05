@@ -50,12 +50,12 @@ export interface LookupUsersRequest {
  * server's user DTO — snake_case preserved so consumers can hand the
  * shape straight to UI / spreadsheet exports without remapping.
  *
- * Re-exported from `@vendidit/auth-shared` so server-side consumers
- * (`@vendidit/auth-server-ts`) and the browser SDK refer to the same
+ * Re-exported from `@rw3iss/auth-shared` so server-side consumers
+ * (`@rw3iss/auth-server-ts`) and the browser SDK refer to the same
  * definition.
  */
-export type { LookupUserRecord } from '@vendidit/auth-shared';
-import type { LookupUserRecord } from '@vendidit/auth-shared';
+export type { LookupUserRecord } from '@rw3iss/auth-shared';
+import type { LookupUserRecord } from '@rw3iss/auth-shared';
 
 export class AdminFlow {
     constructor(private readonly deps: FlowDeps) {}

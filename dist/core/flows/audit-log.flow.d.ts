@@ -4,7 +4,7 @@
  * caller specified and the server rounds down.
  */
 import { type FlowDeps } from './flow-deps.js';
-import type { AuditLogEntry, AuditLogQuery, AuditLogResult } from '@vendidit/auth-shared';
+import type { AuditLogEntry, AuditLogQuery, AuditLogResult } from '@rw3iss/auth-shared';
 export type { AuditLogEntry, AuditLogQuery, AuditLogResult };
 export declare class AuditLogFlow {
     private readonly deps;

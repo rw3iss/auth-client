@@ -1,5 +1,5 @@
 /**
- * `@vendidit/auth-client/preact/ui` — top-level barrel for every UI
+ * `@rw3iss/auth-client/preact/ui` — top-level barrel for every UI
  * component. Tree-shakeable: import only the names you use; bundlers
  * (Vite, Rollup, esbuild, Webpack) drop the rest thanks to ESM +
  * `sideEffects: false` in package.json.

@@ -1,11 +1,11 @@
 /**
- * Public type surface of `@vendidit/auth-client`.
+ * Public type surface of `@rw3iss/auth-client`.
  *
  * Wire shapes (`User`, `Organization`, `MyOrgRecord`, `TokenPair`,
- * `AuthResponse`) live in `@vendidit/auth-shared` so server-side consumers
- * (e.g. `@vendidit/auth-server-ts`) and the browser SDK refer to the
+ * `AuthResponse`) live in `@rw3iss/auth-shared` so server-side consumers
+ * (e.g. `@rw3iss/auth-server-ts`) and the browser SDK refer to the
  * exact same definitions. The Go server is the source of truth — keep
- * `@vendidit/auth-shared/dto` in sync with the auth-server's emitted JSON.
+ * `@rw3iss/auth-shared/dto` in sync with the auth-server's emitted JSON.
  *
  * Browser-specific shapes (`AuthClientConfig`, `AuthSnapshot`,
  * `DecodedAccessToken`, port interfaces, event types) stay local — they're
@@ -30,7 +30,7 @@ import type {
     MyOrgRecord,
     TokenPair,
     AuthResponse,
-} from '@vendidit/auth-shared';
+} from '@rw3iss/auth-shared';
 
 export type { User, Organization, MyOrgRecord, TokenPair, AuthResponse };
 
@@ -84,7 +84,7 @@ export interface DecodedAccessToken {
 /** Configuration for createAuthClient — every field is optional except
  * apiBaseUrl. Defaults give a sensible browser experience. */
 export interface AuthClientConfig {
-    /** Base URL of the auth-server, e.g. "https://auth.vendidit.com/api/v1".
+    /** Base URL of the auth-server, e.g. "https://auth.ryanweiss.net/api/v1".
      * No trailing slash. The SDK appends "/auth/login" etc. */
     apiBaseUrl: string;
 
@@ -94,7 +94,7 @@ export interface AuthClientConfig {
 
     /** Storage namespace prefix for token-store keys. Lets two installs of
      * the SDK on the same origin coexist without colliding (e.g.,
-     * marketplace + admin in the same tab). Default: "vendidit_auth". */
+     * marketplace + admin in the same tab). Default: "rw3iss_auth". */
     storageNamespace?: string;
 
     /** Refresh leeway in seconds — when the access token is within this

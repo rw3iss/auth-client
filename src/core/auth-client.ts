@@ -117,7 +117,7 @@ import {
 /** Default values for AuthClientConfig fields. Exposed so tests can
  * reference the same defaults the constructor uses. */
 export const DEFAULTS = {
-	storageNamespace: 'vendidit_auth',
+	storageNamespace: 'rw3iss_auth',
     refreshLeewaySeconds: 60,
     attachAuthHeader: true,
     enableCrossTabSync: true,

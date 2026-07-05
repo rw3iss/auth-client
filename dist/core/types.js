@@ -1,11 +1,11 @@
 /**
- * Public type surface of `@vendidit/auth-client`.
+ * Public type surface of `@rw3iss/auth-client`.
  *
  * Wire shapes (`User`, `Organization`, `MyOrgRecord`, `TokenPair`,
- * `AuthResponse`) live in `@vendidit/auth-shared` so server-side consumers
- * (e.g. `@vendidit/auth-server-ts`) and the browser SDK refer to the
+ * `AuthResponse`) live in `@rw3iss/auth-shared` so server-side consumers
+ * (e.g. `@rw3iss/auth-server-ts`) and the browser SDK refer to the
  * exact same definitions. The Go server is the source of truth — keep
- * `@vendidit/auth-shared/dto` in sync with the auth-server's emitted JSON.
+ * `@rw3iss/auth-shared/dto` in sync with the auth-server's emitted JSON.
  *
  * Browser-specific shapes (`AuthClientConfig`, `AuthSnapshot`,
  * `DecodedAccessToken`, port interfaces, event types) stay local — they're

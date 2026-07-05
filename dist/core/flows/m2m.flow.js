@@ -22,8 +22,8 @@
  * NOTE — deliberately NOT included here: the client_credentials grant
  * itself (`POST /oauth/token`). Minting service tokens requires the
  * secret, which must never live in a browser; that half belongs to
- * the backend SDKs (`@vendidit/auth-server-ts`/`-nest`,
- * `vendidit/auth-server-php`/`-laravel`).
+ * the backend SDKs (`@rw3iss/auth-server-ts`/`-nest`,
+ * `rw3iss/auth-server-php`/`-laravel`).
  */
 import { ensureOk } from './flow-deps.js';
 export class M2MFlow {

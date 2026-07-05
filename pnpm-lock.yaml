@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@vendidit/auth-shared':
-        specifier: github:Vendidit/auth-shared
-        version: git+https://git@github.com:Vendidit/auth-shared.git#6b9f0a979ffa43933b982297b74c82d13555dae9
+      '@rw3iss/auth-shared':
+        specifier: github:rw3iss/auth-shared
+        version: git+https://git@github.com:rw3iss/auth-shared.git#6b9f0a979ffa43933b982297b74c82d13555dae9
     devDependencies:
       '@types/node':
         specifier: ^22.10.0
@@ -224,8 +224,8 @@ packages:
   '@types/react@18.3.31':
     resolution: {integrity: sha512-vfEqpXTvwT91yhmwdfouStN2hSKwTvyRs8qpLfADyrq/kxDw0hZM7Wk9Ug1FELj8hIby+S/+kQCSRFF32nv2Qw==}
 
-  '@vendidit/auth-shared@git+https://git@github.com:Vendidit/auth-shared.git#6b9f0a979ffa43933b982297b74c82d13555dae9':
-    resolution: {commit: 6b9f0a979ffa43933b982297b74c82d13555dae9, repo: git@github.com:Vendidit/auth-shared.git, type: git}
+  '@rw3iss/auth-shared@git+https://git@github.com:rw3iss/auth-shared.git#6b9f0a979ffa43933b982297b74c82d13555dae9':
+    resolution: {commit: 6b9f0a979ffa43933b982297b74c82d13555dae9, repo: git@github.com:rw3iss/auth-shared.git, type: git}
     version: 0.2.0
 
   '@vue/compiler-core@3.5.35':
@@ -450,7 +450,7 @@ snapshots:
       '@types/prop-types': 15.7.15
       csstype: 3.2.3
 
-  '@vendidit/auth-shared@git+https://git@github.com:Vendidit/auth-shared.git#6b9f0a979ffa43933b982297b74c82d13555dae9': {}
+  '@rw3iss/auth-shared@git+https://git@github.com:rw3iss/auth-shared.git#6b9f0a979ffa43933b982297b74c82d13555dae9': {}
 
   '@vue/compiler-core@3.5.35':
     dependencies:

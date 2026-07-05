@@ -1,5 +1,5 @@
 /**
- * @vendidit/auth-client — public API barrel.
+ * @rw3iss/auth-client — public API barrel.
  *
  * Everything a consumer needs to integrate the SDK lives here. The
  * /core/* tree contains the implementation; framework adapters live
@@ -8,9 +8,9 @@
  * Typical consumer usage:
  *
  * ```ts
- * import { createAuthClient } from '@vendidit/auth-client';
+ * import { createAuthClient } from '@rw3iss/auth-client';
  * const auth = createAuthClient({
- *   apiBaseUrl: 'https://auth.vendidit.com/api/v1',
+ *   apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
  *   appCode: 'marketplace-buyer',
  * });
  *
@@ -26,7 +26,7 @@
  * Advanced customization — swap ports:
  *
  * ```ts
- * import { createAuthClient, MemoryTokenStore } from '@vendidit/auth-client';
+ * import { createAuthClient, MemoryTokenStore } from '@rw3iss/auth-client';
  * const auth = createAuthClient({
  *   apiBaseUrl: '...',
  *   ports: { tokenStore: new MemoryTokenStore() },  // SSR-safe
@@ -37,7 +37,7 @@ export { AuthClient, createAuthClient, DEFAULTS } from './core/auth-client.js';
 export type { LoginParams, SsoStartParams, SsoStartResult, RegisterParams, ImpersonateParams, } from './core/auth-client.js';
 export type { AuthClientConfig, AuthClientPorts, AuthEvent, AuthEventHandler, AuthEventType, AuthResponse, AuthSnapshot, AuthStatus, Broadcast, BroadcastMessage, Clock, Crypto, DecodedAccessToken, Logger, LogoutReason, MyOrgRecord, Organization, Storage, StoredTokens, TokenPair, TokenStore, Transport, TransportRequest, TransportResponse, User, } from './core/types.js';
 export { AuthError, ConflictError, ForbiddenError, fromHttpResponse, NetworkError, NotFoundError, OfflineModeError, RateLimitedError, RequiresTwoFactorError, ServerError, UnauthenticatedError, ValidationError, } from './core/errors.js';
-export type { AuthenticatedUser, ServicePrincipal, AuthPrincipal, JwtPayload as JwtPayloadUnion, UserJwtPayload, RefreshJwtPayload, ServiceJwtPayload, BaseJwtClaims, ImpersonationClaims, PasswordResetClaims, EmailVerificationClaims, AccessJwtPayload, } from '@vendidit/auth-shared/jwt';
+export type { AuthenticatedUser, ServicePrincipal, AuthPrincipal, JwtPayload as JwtPayloadUnion, UserJwtPayload, RefreshJwtPayload, ServiceJwtPayload, BaseJwtClaims, ImpersonationClaims, PasswordResetClaims, EmailVerificationClaims, AccessJwtPayload, } from '@rw3iss/auth-shared/jwt';
 export { LocalStorageTokenStore, MemoryTokenStore } from './core/adapters/local-storage-token-store.js';
 export { LocalStorageStorage, MemoryStorage } from './core/adapters/local-storage-storage.js';
 export { FetchTransport } from './core/adapters/fetch-transport.js';
@@ -84,6 +84,6 @@ export { AuthModule, AccountModule, SessionsModule, UsersModule, OrganizationsMo
 export type { ModuleContext, ClientFlows, CoreAuth } from './core/module-context.js';
 export type { RetryOptions } from './core/adapters/fetch-transport.js';
 export { runOptimisticAction } from './framework-adapters/shared/action-state.js';
-export { roleLabel, roleLabels, KNOWN_BASE_ROLE_LABELS, SYSTEM_ADMIN, SUPER_ADMIN, ORG_ADMIN, ORG_MANAGER, SELLER, BUYER, ORG_MEMBER, BASE_USER, } from '@vendidit/auth-shared/constants';
-export type { RoleLike, RoleLabelOptions, SystemRoleCode } from '@vendidit/auth-shared/constants';
+export { roleLabel, roleLabels, KNOWN_BASE_ROLE_LABELS, SYSTEM_ADMIN, SUPER_ADMIN, ORG_ADMIN, ORG_MANAGER, SELLER, BUYER, ORG_MEMBER, BASE_USER, } from '@rw3iss/auth-shared/constants';
+export type { RoleLike, RoleLabelOptions, SystemRoleCode } from '@rw3iss/auth-shared/constants';
 //# sourceMappingURL=index.d.ts.map

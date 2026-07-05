@@ -25,9 +25,9 @@
 import { ensureOk, type FlowDeps } from './flow-deps.js';
 import type { Organization } from '../types.js';
 
-/* Wire DTOs live in @vendidit/auth-shared (dto/org-admin.ts +
+/* Wire DTOs live in @rw3iss/auth-shared (dto/org-admin.ts +
  * dto/invitation.ts) — re-exported here so existing imports from
- * '@vendidit/auth-client' keep working. */
+ * '@rw3iss/auth-client' keep working. */
 import type {
     OrgMemberRecord,
     AdminUserOrgMembership,
@@ -40,7 +40,7 @@ import type {
     UpdateOrgRoleRequest,
     UpdateMemberStatusRequest,
     CreateInvitationRequest,
-} from '@vendidit/auth-shared/dto';
+} from '@rw3iss/auth-shared/dto';
 
 export type {
     OrgMemberRecord,

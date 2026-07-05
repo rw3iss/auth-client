@@ -14,8 +14,8 @@
  */
 import { type Action } from '../shared/action-state.js';
 import type { AuthClient } from '../../core/auth-client.js';
-export declare const useLogin: (client?: AuthClient) => Action<[params: import("../../index.js").LoginParams], import("@vendidit/auth-shared").AuthResponse>;
-export declare const useRegister: (client?: AuthClient) => Action<[params: import("../../index.js").RegisterParams], import("@vendidit/auth-shared").AuthResponse>;
+export declare const useLogin: (client?: AuthClient) => Action<[params: import("../../index.js").LoginParams], import("@rw3iss/auth-shared").AuthResponse>;
+export declare const useRegister: (client?: AuthClient) => Action<[params: import("../../index.js").RegisterParams], import("@rw3iss/auth-shared").AuthResponse>;
 export declare const useLogout: (client?: AuthClient) => Action<[], void>;
 export declare const useLogoutAll: (client?: AuthClient) => Action<[], void>;
 export declare const useStartSso: (client?: AuthClient) => Action<[params: import("../../index.js").SsoStartParams], import("../../index.js").SsoStartResult>;
@@ -23,9 +23,9 @@ export declare const useCompleteSso: (client?: AuthClient) => Action<[params: {
     code: string;
     state: string;
     provider?: string;
-}], import("@vendidit/auth-shared").AuthResponse>;
-export declare const useRefreshTokens: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").TokenPair>;
-export declare const useWhoami: (client?: AuthClient) => Action<[], import("@vendidit/auth-shared").User>;
+}], import("@rw3iss/auth-shared").AuthResponse>;
+export declare const useRefreshTokens: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").TokenPair>;
+export declare const useWhoami: (client?: AuthClient) => Action<[], import("@rw3iss/auth-shared").User>;
 export declare const useSetupTwoFactor: (client?: AuthClient) => Action<[], {
     secret: string;
     provisioningUri: string;
@@ -35,7 +35,7 @@ export declare const useDisableTwoFactor: (client?: AuthClient) => Action<[param
     password: string;
     code: string;
 }], void>;
-export declare const useImpersonate: (client?: AuthClient) => Action<[params: import("../../index.js").ImpersonateParams], import("@vendidit/auth-shared").AuthResponse>;
+export declare const useImpersonate: (client?: AuthClient) => Action<[params: import("../../index.js").ImpersonateParams], import("@rw3iss/auth-shared").AuthResponse>;
 export declare const useHardDeleteUser: (client?: AuthClient) => Action<[params: {
     userId: string;
     reason: string;

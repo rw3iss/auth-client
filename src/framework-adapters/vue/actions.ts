@@ -3,7 +3,7 @@
  * exposed as reactive refs.
  *
  *   <script setup>
- *   import { useLogin } from '@vendidit/auth-client/vue';
+ *   import { useLogin } from '@rw3iss/auth-client/vue';
  *   const login = useLogin();
  *   async function submit() { await login.run({ email: 'a@b.com', password: '...' }); }
  *   </script>

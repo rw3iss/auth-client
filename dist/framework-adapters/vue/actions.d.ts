@@ -3,7 +3,7 @@
  * exposed as reactive refs.
  *
  *   <script setup>
- *   import { useLogin } from '@vendidit/auth-client/vue';
+ *   import { useLogin } from '@rw3iss/auth-client/vue';
  *   const login = useLogin();
  *   async function submit() { await login.run({ email: 'a@b.com', password: '...' }); }
  *   </script>
@@ -25,8 +25,8 @@ export interface VueAction<TArgs extends unknown[], TResult> {
     loading: Ref<boolean>;
     isIdle: Ref<boolean>;
 }
-export declare const useLogin: (client?: AuthClient) => VueAction<[params: import("../../index.js").LoginParams], import("@vendidit/auth-shared").AuthResponse>;
-export declare const useRegister: (client?: AuthClient) => VueAction<[params: import("../../index.js").RegisterParams], import("@vendidit/auth-shared").AuthResponse>;
+export declare const useLogin: (client?: AuthClient) => VueAction<[params: import("../../index.js").LoginParams], import("@rw3iss/auth-shared").AuthResponse>;
+export declare const useRegister: (client?: AuthClient) => VueAction<[params: import("../../index.js").RegisterParams], import("@rw3iss/auth-shared").AuthResponse>;
 export declare const useLogout: (client?: AuthClient) => VueAction<[], void>;
 export declare const useLogoutAll: (client?: AuthClient) => VueAction<[], void>;
 export declare const useStartSso: (client?: AuthClient) => VueAction<[params: import("../../index.js").SsoStartParams], import("../../index.js").SsoStartResult>;
@@ -34,9 +34,9 @@ export declare const useCompleteSso: (client?: AuthClient) => VueAction<[params:
     code: string;
     state: string;
     provider?: string;
-}], import("@vendidit/auth-shared").AuthResponse>;
-export declare const useRefreshTokens: (client?: AuthClient) => VueAction<[], import("@vendidit/auth-shared").TokenPair>;
-export declare const useWhoami: (client?: AuthClient) => VueAction<[], import("@vendidit/auth-shared").User>;
+}], import("@rw3iss/auth-shared").AuthResponse>;
+export declare const useRefreshTokens: (client?: AuthClient) => VueAction<[], import("@rw3iss/auth-shared").TokenPair>;
+export declare const useWhoami: (client?: AuthClient) => VueAction<[], import("@rw3iss/auth-shared").User>;
 export declare const useSetupTwoFactor: (client?: AuthClient) => VueAction<[], {
     secret: string;
     provisioningUri: string;
@@ -46,7 +46,7 @@ export declare const useDisableTwoFactor: (client?: AuthClient) => VueAction<[pa
     password: string;
     code: string;
 }], void>;
-export declare const useImpersonate: (client?: AuthClient) => VueAction<[params: import("../../index.js").ImpersonateParams], import("@vendidit/auth-shared").AuthResponse>;
+export declare const useImpersonate: (client?: AuthClient) => VueAction<[params: import("../../index.js").ImpersonateParams], import("@rw3iss/auth-shared").AuthResponse>;
 export declare const useHardDeleteUser: (client?: AuthClient) => VueAction<[params: {
     userId: string;
     reason: string;

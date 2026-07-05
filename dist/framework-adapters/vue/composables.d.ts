@@ -3,7 +3,7 @@
  * refs / computed so templates can use them directly:
  *
  *   <script setup>
- *   import { useAuth } from '@vendidit/auth-client/vue';
+ *   import { useAuth } from '@rw3iss/auth-client/vue';
  *   const { user, ready, status } = useAuth();
  *   </script>
  *

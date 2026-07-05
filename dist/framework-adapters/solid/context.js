@@ -63,7 +63,7 @@ export function AuthProvider(props) {
 export function useAuthCtx() {
     const ctx = useContext(AuthClientContext);
     if (!ctx) {
-        throw new Error('@vendidit/auth-client: useAuthClient must be used inside an <AuthProvider>');
+        throw new Error('@rw3iss/auth-client: useAuthClient must be used inside an <AuthProvider>');
     }
     return ctx;
 }

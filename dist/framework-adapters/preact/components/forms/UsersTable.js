@@ -2,7 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "preact/jsx-runtime";
 import { useEffect, useState } from 'preact/hooks';
 import { useListUsers } from '../../actions.js';
 import { UserAvatar } from '../atoms/UserAvatar.js';
-import { roleLabels } from '@vendidit/auth-shared/constants';
+import { roleLabels } from '@rw3iss/auth-shared/constants';
 export function UsersTable(props) {
     const list = useListUsers(props.client);
     const [items, setItems] = useState([]);

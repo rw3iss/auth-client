@@ -9,7 +9,7 @@ import type {
     AuditLogEntry,
     AuditLogQuery,
     AuditLogResult,
-} from '@vendidit/auth-shared';
+} from '@rw3iss/auth-shared';
 
 export type { AuditLogEntry, AuditLogQuery, AuditLogResult };
 

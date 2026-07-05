@@ -44,7 +44,7 @@ import type { AuthClientConfig, AuthEventHandler, AuthEventType, AuthResponse, A
 /** Default values for AuthClientConfig fields. Exposed so tests can
  * reference the same defaults the constructor uses. */
 export declare const DEFAULTS: {
-    readonly storageNamespace: "vendidit_auth";
+    readonly storageNamespace: "rw3iss_auth";
     readonly refreshLeewaySeconds: 60;
     readonly attachAuthHeader: true;
     readonly enableCrossTabSync: true;

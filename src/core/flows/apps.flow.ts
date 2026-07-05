@@ -19,9 +19,9 @@
 
 import { ensureOk, type FlowDeps } from './flow-deps.js';
 
-/* Wire DTOs live in @vendidit/auth-shared (dto/app.ts) — the single
+/* Wire DTOs live in @rw3iss/auth-shared (dto/app.ts) — the single
  * TS contract every consumer shares. Re-exported here so existing
- * `import { AppRecord } from '@vendidit/auth-client'` call sites keep
+ * `import { AppRecord } from '@rw3iss/auth-client'` call sites keep
  * working. */
 import type {
     AppRecord,
@@ -29,8 +29,8 @@ import type {
     CreateAppRequest,
     UpdateAppRequest,
     RegistrationPolicy,
-} from '@vendidit/auth-shared/dto';
-import { APP_WEBHOOK_EVENTS } from '@vendidit/auth-shared/dto';
+} from '@rw3iss/auth-shared/dto';
+import { APP_WEBHOOK_EVENTS } from '@rw3iss/auth-shared/dto';
 
 export type { AppRecord, AppWebhook, CreateAppRequest, UpdateAppRequest, RegistrationPolicy };
 export { APP_WEBHOOK_EVENTS };

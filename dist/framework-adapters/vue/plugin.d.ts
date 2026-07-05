@@ -2,8 +2,8 @@
  * Vue 3 plugin + provide/inject DI.
  *
  *   import { createApp } from 'vue';
- *   import { createAuthClient } from '@vendidit/auth-client';
- *   import { AuthPlugin } from '@vendidit/auth-client/vue';
+ *   import { createAuthClient } from '@rw3iss/auth-client';
+ *   import { AuthPlugin } from '@rw3iss/auth-client/vue';
  *
  *   const client = createAuthClient({...});
  *   createApp(App).use(AuthPlugin, { client }).mount('#app');

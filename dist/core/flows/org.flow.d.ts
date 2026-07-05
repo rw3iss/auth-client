@@ -23,7 +23,7 @@
  */
 import { type FlowDeps } from './flow-deps.js';
 import type { Organization } from '../types.js';
-import type { OrgMemberRecord, AdminUserOrgMembership, OrgRoleRecord, AssignablePermissionRecord, InvitationRecord, UpdateOrgRequest, CreateOrgRequest, CreateOrgRoleRequest, UpdateOrgRoleRequest, UpdateMemberStatusRequest, CreateInvitationRequest } from '@vendidit/auth-shared/dto';
+import type { OrgMemberRecord, AdminUserOrgMembership, OrgRoleRecord, AssignablePermissionRecord, InvitationRecord, UpdateOrgRequest, CreateOrgRequest, CreateOrgRoleRequest, UpdateOrgRoleRequest, UpdateMemberStatusRequest, CreateInvitationRequest } from '@rw3iss/auth-shared/dto';
 export type { OrgMemberRecord, AdminUserOrgMembership, OrgRoleRecord, AssignablePermissionRecord, InvitationRecord, UpdateOrgRequest, CreateOrgRequest, CreateOrgRoleRequest, UpdateOrgRoleRequest, UpdateMemberStatusRequest, CreateInvitationRequest, };
 export declare class OrgFlow {
     private readonly deps;

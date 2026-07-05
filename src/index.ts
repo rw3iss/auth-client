@@ -1,5 +1,5 @@
 /**
- * @vendidit/auth-client — public API barrel.
+ * @rw3iss/auth-client — public API barrel.
  *
  * Everything a consumer needs to integrate the SDK lives here. The
  * /core/* tree contains the implementation; framework adapters live
@@ -8,9 +8,9 @@
  * Typical consumer usage:
  *
  * ```ts
- * import { createAuthClient } from '@vendidit/auth-client';
+ * import { createAuthClient } from '@rw3iss/auth-client';
  * const auth = createAuthClient({
- *   apiBaseUrl: 'https://auth.vendidit.com/api/v1',
+ *   apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
  *   appCode: 'marketplace-buyer',
  * });
  *
@@ -26,7 +26,7 @@
  * Advanced customization — swap ports:
  *
  * ```ts
- * import { createAuthClient, MemoryTokenStore } from '@vendidit/auth-client';
+ * import { createAuthClient, MemoryTokenStore } from '@rw3iss/auth-client';
  * const auth = createAuthClient({
  *   apiBaseUrl: '...',
  *   ports: { tokenStore: new MemoryTokenStore() },  // SSR-safe
@@ -91,9 +91,9 @@ export {
 
 // Auth-shared re-exports — single import point for consumers that
 // want the canonical wire shapes + principals without depending on
-// `@vendidit/auth-shared` directly. The contract is the same; this
+// `@rw3iss/auth-shared` directly. The contract is the same; this
 // is just import-path ergonomics for SDK / app consumers that already
-// pull in `@vendidit/auth-client`.
+// pull in `@rw3iss/auth-client`.
 export type {
     AuthenticatedUser,
     ServicePrincipal,
@@ -107,7 +107,7 @@ export type {
     PasswordResetClaims,
     EmailVerificationClaims,
     AccessJwtPayload,
-} from '@vendidit/auth-shared/jwt';
+} from '@rw3iss/auth-shared/jwt';
 
 // Adapters — exported so consumers can mix-and-match (e.g. wrap
 // FetchTransport with retry, or use MemoryTokenStore for SSR).
@@ -202,7 +202,7 @@ export type {
 export { APP_WEBHOOK_EVENTS } from './core/flows/apps.flow.js';
 
 // M2M clients admin (the "Services" registry — machine credentials,
-// system_admin only). Types originate in @vendidit/auth-shared/dto.
+// system_admin only). Types originate in @rw3iss/auth-shared/dto.
 export { M2MFlow } from './core/flows/m2m.flow.js';
 export type {
     M2MClientRecord,
@@ -212,7 +212,7 @@ export type {
 
 // User pools (namespaces) admin — system_admin only. Pool catalog is
 // SDK-cached 60s for type-ahead pickers. Types originate in
-// @vendidit/auth-shared/dto.
+// @rw3iss/auth-shared/dto.
 export { NamespacesFlow } from './core/flows/namespaces.flow.js';
 export type {
     NamespaceInfo,
@@ -245,8 +245,8 @@ export type { RetryOptions } from './core/adapters/fetch-transport.js';
 // Optimistic action helper for adapters / advanced consumers
 export { runOptimisticAction } from './framework-adapters/shared/action-state.js';
 
-// Role helpers — re-export from @vendidit/auth-shared/constants so a
-// consumer that only depends on @vendidit/auth-client has a single
+// Role helpers — re-export from @rw3iss/auth-shared/constants so a
+// consumer that only depends on @rw3iss/auth-client has a single
 // import path for role-related UI helpers. The canonical source still
 // lives in auth-shared (used by server-tier packages too).
 export {
@@ -261,5 +261,5 @@ export {
     BUYER,
     ORG_MEMBER,
     BASE_USER,
-} from '@vendidit/auth-shared/constants';
-export type { RoleLike, RoleLabelOptions, SystemRoleCode } from '@vendidit/auth-shared/constants';
+} from '@rw3iss/auth-shared/constants';
+export type { RoleLike, RoleLabelOptions, SystemRoleCode } from '@rw3iss/auth-shared/constants';

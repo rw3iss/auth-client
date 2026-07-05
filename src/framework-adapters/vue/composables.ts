@@ -3,7 +3,7 @@
  * refs / computed so templates can use them directly:
  *
  *   <script setup>
- *   import { useAuth } from '@vendidit/auth-client/vue';
+ *   import { useAuth } from '@rw3iss/auth-client/vue';
  *   const { user, ready, status } = useAuth();
  *   </script>
  *
@@ -26,7 +26,7 @@ function getBundle(): AuthBundle {
     const bundle = inject(AUTH_INJECTION_KEY);
     if (!bundle) {
         throw new Error(
-            '@vendidit/auth-client: useAuth requires app.use(AuthPlugin, { client })',
+            '@rw3iss/auth-client: useAuth requires app.use(AuthPlugin, { client })',
         );
     }
     return bundle;

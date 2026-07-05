@@ -17,7 +17,7 @@
  * <SystemAdminOnly> to hide the affordances.
  */
 import { ensureOk } from './flow-deps.js';
-import { APP_WEBHOOK_EVENTS } from '@vendidit/auth-shared/dto';
+import { APP_WEBHOOK_EVENTS } from '@rw3iss/auth-shared/dto';
 export { APP_WEBHOOK_EVENTS };
 export class AppsFlow {
     deps;

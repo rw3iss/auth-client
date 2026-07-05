@@ -1,7 +1,7 @@
 /**
  * SolidJS adapter — public API.
  *
- * Import as: `import { AuthProvider, useAuth } from '@vendidit/auth-client/solid'`.
+ * Import as: `import { AuthProvider, useAuth } from '@rw3iss/auth-client/solid'`.
  *
  * Convention: state hooks return Accessors (per Solid idiom). Action
  * factories use the `create*` prefix (matching createSignal, createEffect).

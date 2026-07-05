@@ -20,7 +20,7 @@
  * doesn't compose with the structured message types we use here.
  * BroadcastChannel-or-nothing is the cleaner contract.
  */
-const CHANNEL_NAME = 'vendidit_auth';
+const CHANNEL_NAME = 'rw3iss_auth';
 export class BroadcastChannelAdapter {
     channel;
     handlers = new Set();

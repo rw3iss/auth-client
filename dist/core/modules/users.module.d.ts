@@ -42,7 +42,7 @@ export declare class UsersModule {
      * active sessions. Admin only. See `getSessions()` for the
      * self-service equivalent.
      */
-    listSessions(userId: string): Promise<import("@vendidit/auth-shared").SessionRecord[]>;
+    listSessions(userId: string): Promise<import("@rw3iss/auth-shared").SessionRecord[]>;
     /**
      * DELETE /admin/users/{userId}/sessions/{sessionId} — terminate
      * one specific session belonging to a target user. Admin only.

@@ -3,7 +3,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "preact/jsx-runtime";
 import { useEffect, useState } from 'preact/hooks';
 import { useSetUserRoles, useSetUserPassword, useHardDeleteUser, useAdminResetLockout, } from '../../actions.js';
 import { UserAvatar } from '../atoms/UserAvatar.js';
-import { roleLabel } from '@vendidit/auth-shared/constants';
+import { roleLabel } from '@rw3iss/auth-shared/constants';
 // Base (platform) roles only. Org-scoped roles (org_admin, org_manager,
 // seller, buyer, org_member) are assigned per-organization via
 // PUT /admin/organizations/{orgId}/members/{userId}/roles — the server

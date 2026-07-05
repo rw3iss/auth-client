@@ -13,7 +13,7 @@
  * to bypass it explicitly.
  */
 import { type FlowDeps } from './flow-deps.js';
-import type { NamespaceInfo, ListNamespacesResponse, UserNamespacesResponse } from '@vendidit/auth-shared/dto';
+import type { NamespaceInfo, ListNamespacesResponse, UserNamespacesResponse } from '@rw3iss/auth-shared/dto';
 export type { NamespaceInfo, ListNamespacesResponse, UserNamespacesResponse };
 export declare class NamespacesFlow {
     private readonly deps;

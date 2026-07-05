@@ -1,7 +1,7 @@
 /**
  * Vue 3 adapter — public API.
  *
- * Import as: `import { AuthPlugin, useAuth } from '@vendidit/auth-client/vue'`.
+ * Import as: `import { AuthPlugin, useAuth } from '@rw3iss/auth-client/vue'`.
  *
  * Install via app.use(AuthPlugin, { client }) once at boot; consume via
  * useAuth() composables anywhere in the component tree.

@@ -29,9 +29,9 @@ import { tryDecodeAccessToken } from '../../core/token-decoder.js';
 import type { DecodedAccessToken, User } from '../../core/types.js';
 
 export interface ServerAuthConfig {
-    /** Auth-server base URL, e.g. "https://auth.vendidit.com/api/v1". */
+    /** Auth-server base URL, e.g. "https://auth.ryanweiss.net/api/v1". */
     apiBaseUrl: string;
-	/** Cookie name carrying the access token. Default: 'vendidit_access_token'. */
+	/** Cookie name carrying the access token. Default: 'rw3iss_access_token'. */
     cookieName?: string;
     /** When true, the helper hits /auth/me to confirm server-side
      * validity. Adds a network roundtrip per request; recommended for
@@ -55,13 +55,13 @@ export interface ServerAuthResult {
     error: Error | null;
 }
 
-const DEFAULT_COOKIE = 'vendidit_access_token';
+const DEFAULT_COOKIE = 'rw3iss_access_token';
 
 /**
  * Astro server-side helper. Call from a `.astro` page's front-matter:
  *
  *   ---
- *   import { getServerAuth } from '@vendidit/auth-client/astro';
+ *   import { getServerAuth } from '@rw3iss/auth-client/astro';
  *   const auth = await getServerAuth(Astro.request, {
  *     apiBaseUrl: import.meta.env.AUTH_API_URL,
  *     validateOnServer: true,

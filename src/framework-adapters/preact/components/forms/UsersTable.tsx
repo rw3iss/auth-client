@@ -3,7 +3,7 @@ import type { ComponentChildren } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { useListUsers } from '../../actions.js';
 import { UserAvatar } from '../atoms/UserAvatar.js';
-import { roleLabels } from '@vendidit/auth-shared/constants';
+import { roleLabels } from '@rw3iss/auth-shared/constants';
 import type { LookupUserRecord } from '../../../../core/flows/admin.flow.js';
 import type { AuthClient } from '../../../../core/auth-client.js';
 

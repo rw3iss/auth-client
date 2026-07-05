@@ -25,12 +25,12 @@
  * adapter (react / preact / solid / vue).
  */
 import { tryDecodeAccessToken } from '../../core/token-decoder.js';
-const DEFAULT_COOKIE = 'vendidit_access_token';
+const DEFAULT_COOKIE = 'rw3iss_access_token';
 /**
  * Astro server-side helper. Call from a `.astro` page's front-matter:
  *
  *   ---
- *   import { getServerAuth } from '@vendidit/auth-client/astro';
+ *   import { getServerAuth } from '@rw3iss/auth-client/astro';
  *   const auth = await getServerAuth(Astro.request, {
  *     apiBaseUrl: import.meta.env.AUTH_API_URL,
  *     validateOnServer: true,
