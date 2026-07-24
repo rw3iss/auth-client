@@ -34,12 +34,12 @@ describe('decodeAccessToken', () => {
             email: 'a@b.com',
             exp: 9_999_999_999,
             iat: 1_700_000_000,
-            roles: ['buyer'],
+            roles: ['org_member'],
         });
         const decoded = decodeAccessToken(token);
         assert.equal(decoded.uid, 'user-1');
         assert.equal(decoded.email, 'a@b.com');
-        assert.deepEqual(decoded.roles, ['buyer']);
+        assert.deepEqual(decoded.roles, ['org_member']);
     });
 
     it('rejects alg=none', () => {

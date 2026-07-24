@@ -11,7 +11,7 @@
  * import { createAuthClient } from '@rw3iss/auth-client';
  * const auth = createAuthClient({
  *   apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
- *   appCode: 'marketplace-buyer',
+ *   appCode: 'marketplace-app',
  * });
  *
  * const result = await auth.auth.login({ email, password });
@@ -82,5 +82,5 @@ export { runOptimisticAction } from './framework-adapters/shared/action-state.js
 // consumer that only depends on @rw3iss/auth-client has a single
 // import path for role-related UI helpers. The canonical source still
 // lives in auth-shared (used by server-tier packages too).
-export { roleLabel, roleLabels, KNOWN_BASE_ROLE_LABELS, SYSTEM_ADMIN, SUPER_ADMIN, ORG_ADMIN, ORG_MANAGER, SELLER, BUYER, ORG_MEMBER, BASE_USER, } from '@rw3iss/auth-shared/constants';
+export { roleLabel, roleLabels, KNOWN_BASE_ROLE_LABELS, SYSTEM_ADMIN, SUPER_ADMIN, ORG_ADMIN, ORG_MANAGER, ORG_MEMBER, BASE_USER, } from '@rw3iss/auth-shared/constants';
 //# sourceMappingURL=index.js.map

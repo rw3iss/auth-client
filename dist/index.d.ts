@@ -11,7 +11,7 @@
  * import { createAuthClient } from '@rw3iss/auth-client';
  * const auth = createAuthClient({
  *   apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
- *   appCode: 'marketplace-buyer',
+ *   appCode: 'marketplace-app',
  * });
  *
  * const result = await auth.auth.login({ email, password });
@@ -84,6 +84,6 @@ export { AuthModule, AccountModule, SessionsModule, UsersModule, OrganizationsMo
 export type { ModuleContext, ClientFlows, CoreAuth } from './core/module-context.js';
 export type { RetryOptions } from './core/adapters/fetch-transport.js';
 export { runOptimisticAction } from './framework-adapters/shared/action-state.js';
-export { roleLabel, roleLabels, KNOWN_BASE_ROLE_LABELS, SYSTEM_ADMIN, SUPER_ADMIN, ORG_ADMIN, ORG_MANAGER, SELLER, BUYER, ORG_MEMBER, BASE_USER, } from '@rw3iss/auth-shared/constants';
+export { roleLabel, roleLabels, KNOWN_BASE_ROLE_LABELS, SYSTEM_ADMIN, SUPER_ADMIN, ORG_ADMIN, ORG_MANAGER, ORG_MEMBER, BASE_USER, } from '@rw3iss/auth-shared/constants';
 export type { RoleLike, RoleLabelOptions, SystemRoleCode } from '@rw3iss/auth-shared/constants';
 //# sourceMappingURL=index.d.ts.map

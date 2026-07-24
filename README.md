@@ -1,6 +1,6 @@
 # @rw3iss/auth-client
 
-📚 **Full documentation**: [docs.auth.ryanweiss.net](https://docs.auth.ryanweiss.net/auth-client/overview/)
+📚 **Full documentation**: [auth-docs.rw3iss.com](https://auth-docs.rw3iss.com/auth-client/overview/)
 
 Framework-agnostic browser SDK for [`@rw3iss/auth-server`](../auth-server). Vanilla TypeScript core with first-class adapters for **React, Preact, SolidJS, Vue, and Astro**. Hexagonal architecture — every external dependency is an injectable port with a browser-native default. Designed to compose into the broader rw3iss marketplace SDK.
 
@@ -39,7 +39,7 @@ import { createAuthClient } from '@rw3iss/auth-client';
 
 const auth = createAuthClient({
     apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
-    appCode: 'marketplace-buyer',
+    appCode: 'marketplace-app',
     bootstrap: 'auto', // default — validates cached session at boot
 });
 
@@ -108,7 +108,7 @@ import { AuthProvider, useAuth, useLogin } from '@rw3iss/auth-client/react';
 
 const auth = createAuthClient({
     apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
-    appCode: 'marketplace-buyer',
+    appCode: 'marketplace-app',
 });
 
 export function App() {
@@ -171,7 +171,7 @@ import { AuthProvider, useAuth, useLogin } from '@rw3iss/auth-client/preact';
 
 const auth = createAuthClient({
     apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
-    appCode: 'marketplace-buyer',
+    appCode: 'marketplace-app',
 });
 
 export function App() {
@@ -227,7 +227,7 @@ import { AuthProvider, useAuth, createLogin } from '@rw3iss/auth-client/solid';
 
 const auth = createAuthClient({
     apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
-    appCode: 'marketplace-buyer',
+    appCode: 'marketplace-app',
 });
 
 export function App() {
@@ -292,7 +292,7 @@ import App from './App.vue';
 
 const auth = createAuthClient({
     apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
-    appCode: 'marketplace-buyer',
+    appCode: 'marketplace-app',
 });
 
 createApp(App).use(AuthPlugin, { client: auth }).mount('#app');
@@ -384,7 +384,7 @@ import { AuthProvider, useAuth, createLogout } from '@rw3iss/auth-client/solid';
 
 const auth = createAuthClient({
     apiBaseUrl: import.meta.env.PUBLIC_AUTH_API_URL,
-    appCode: 'marketplace-buyer',
+    appCode: 'marketplace-app',
 });
 
 export default function DashboardIsland() {
@@ -480,10 +480,10 @@ const auth = createAuthClient({
     apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
 
     /** App scoping — required by auth-server unless AUTH_ALLOW_BASE_USER_LOGIN is set. */
-    appCode: 'marketplace-buyer',
+    appCode: 'marketplace-app',
 
     /** Storage namespace prefix. Default 'rw3iss_auth'. */
-    storageNamespace: 'marketplace_buyer_auth',
+    storageNamespace: 'marketplace_app_auth',
 
     /** Seconds before expiry to preemptively refresh. Default 60. */
     refreshLeewaySeconds: 60,

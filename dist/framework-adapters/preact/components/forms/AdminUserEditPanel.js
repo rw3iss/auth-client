@@ -5,7 +5,7 @@ import { useSetUserRoles, useSetUserPassword, useHardDeleteUser, useAdminResetLo
 import { UserAvatar } from '../atoms/UserAvatar.js';
 import { roleLabel } from '@rw3iss/auth-shared/constants';
 // Base (platform) roles only. Org-scoped roles (org_admin, org_manager,
-// seller, buyer, org_member) are assigned per-organization via
+// org_member) are assigned per-organization via
 // PUT /admin/organizations/{orgId}/members/{userId}/roles — the server
 // rejects them here ("Cannot assign organization role as base role"), so
 // they're intentionally excluded from this picker.

@@ -153,8 +153,8 @@ export class OrgFlow {
      * PUT /admin/organizations/{orgId}/members/{userId}/roles —
      * REPLACE a member's org-role set (set semantics: roles not
      * listed are removed; new ones assigned). Org-scoped role codes
-     * only (`org_admin`, `org_manager`, `seller`, `buyer`,
-     * `org_member`, or this org's custom roles) — base/platform roles
+     * only (`org_admin`, `org_manager`, `org_member`, or this org's
+     * custom roles) — base/platform roles
      * are rejected; manage those via `setUserRoles`. system_admin only.
      *
      * Backs "change organization admin" UIs: promote the new admin

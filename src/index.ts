@@ -11,7 +11,7 @@
  * import { createAuthClient } from '@rw3iss/auth-client';
  * const auth = createAuthClient({
  *   apiBaseUrl: 'https://auth.ryanweiss.net/api/v1',
- *   appCode: 'marketplace-buyer',
+ *   appCode: 'marketplace-app',
  * });
  *
  * const result = await auth.auth.login({ email, password });
@@ -257,8 +257,6 @@ export {
     SUPER_ADMIN,
     ORG_ADMIN,
     ORG_MANAGER,
-    SELLER,
-    BUYER,
     ORG_MEMBER,
     BASE_USER,
 } from '@rw3iss/auth-shared/constants';
