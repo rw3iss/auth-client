@@ -4,6 +4,7 @@ import {
     SignInWithAppleButton,
     SignInWithMicrosoftButton,
     SignInWithGitHubButton,
+    SignInWithXButton,
 } from './SsoButton.js';
 import type { AuthClient } from '../../../../core/auth-client.js';
 
@@ -13,7 +14,7 @@ import type { AuthClient } from '../../../../core/auth-client.js';
  * login pages; render the individual brand buttons directly for more
  * control over layout.
  */
-export type SsoProviderName = 'google' | 'apple' | 'microsoft' | 'github';
+export type SsoProviderName = 'google' | 'apple' | 'microsoft' | 'github' | 'x';
 
 export interface SsoButtonGroupProps {
     redirectUrl: string;
@@ -38,10 +39,11 @@ const RENDERERS: Record<SsoProviderName, (p: any) => preact.JSX.Element> = {
     apple: SignInWithAppleButton,
     microsoft: SignInWithMicrosoftButton,
     github: SignInWithGitHubButton,
+    x: SignInWithXButton,
 };
 
 export function SsoButtonGroup(props: SsoButtonGroupProps) {
-    let providers = props.providers ?? ['google', 'apple', 'microsoft', 'github'];
+    let providers = props.providers ?? ['google', 'apple', 'microsoft', 'github', 'x'];
     if (props.allowedAuthMethods && props.allowedAuthMethods.length > 0) {
         const allow = new Set(props.allowedAuthMethods.map((m) => m.toLowerCase()));
         providers = providers.filter((p) => allow.has(p));

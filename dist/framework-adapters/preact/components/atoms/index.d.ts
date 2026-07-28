@@ -21,7 +21,7 @@ export { LogoutButton } from './LogoutButton.js';
 export type { LogoutButtonProps } from './LogoutButton.js';
 export { LogoutAllButton } from './LogoutAllButton.js';
 export type { LogoutAllButtonProps } from './LogoutAllButton.js';
-export { SsoButton, SignInWithGoogleButton, SignInWithAppleButton, SignInWithMicrosoftButton, SignInWithGitHubButton, } from './SsoButton.js';
+export { SsoButton, SignInWithGoogleButton, SignInWithAppleButton, SignInWithMicrosoftButton, SignInWithGitHubButton, SignInWithXButton, } from './SsoButton.js';
 export type { SsoButtonProps } from './SsoButton.js';
 export { SsoButtonGroup } from './SsoButtonGroup.js';
 export type { SsoButtonGroupProps, SsoProviderName } from './SsoButtonGroup.js';

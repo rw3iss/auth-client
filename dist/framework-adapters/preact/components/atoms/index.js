@@ -16,7 +16,7 @@ export { UserAvatar } from './UserAvatar.js';
 export { UserMenu } from './UserMenu.js';
 export { LogoutButton } from './LogoutButton.js';
 export { LogoutAllButton } from './LogoutAllButton.js';
-export { SsoButton, SignInWithGoogleButton, SignInWithAppleButton, SignInWithMicrosoftButton, SignInWithGitHubButton, } from './SsoButton.js';
+export { SsoButton, SignInWithGoogleButton, SignInWithAppleButton, SignInWithMicrosoftButton, SignInWithGitHubButton, SignInWithXButton, } from './SsoButton.js';
 export { SsoButtonGroup } from './SsoButtonGroup.js';
 export { ProtectedRoute } from './ProtectedRoute.js';
 export { GuestOnly } from './GuestOnly.js';

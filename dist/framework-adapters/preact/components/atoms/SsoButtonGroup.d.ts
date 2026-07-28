@@ -5,7 +5,7 @@ import type { AuthClient } from '../../../../core/auth-client.js';
  * login pages; render the individual brand buttons directly for more
  * control over layout.
  */
-export type SsoProviderName = 'google' | 'apple' | 'microsoft' | 'github';
+export type SsoProviderName = 'google' | 'apple' | 'microsoft' | 'github' | 'x';
 export interface SsoButtonGroupProps {
     redirectUrl: string;
     /** Which providers to render, in order. Default: all four. */

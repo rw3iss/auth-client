@@ -54,5 +54,10 @@ export declare const SignInWithGitHubButton: (p: Variant & {
     provider?: string;
     brandLabel?: string;
 }) => import("preact").JSX.Element;
+/** "Login with X" (x.com / Twitter). Dark brand to match X's black mark. */
+export declare const SignInWithXButton: (p: Variant & {
+    provider?: string;
+    brandLabel?: string;
+}) => import("preact").JSX.Element;
 export {};
 //# sourceMappingURL=SsoButton.d.ts.map

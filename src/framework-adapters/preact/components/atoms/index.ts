@@ -32,6 +32,7 @@ export {
     SignInWithAppleButton,
     SignInWithMicrosoftButton,
     SignInWithGitHubButton,
+    SignInWithXButton,
 } from './SsoButton.js';
 export type { SsoButtonProps } from './SsoButton.js';
 

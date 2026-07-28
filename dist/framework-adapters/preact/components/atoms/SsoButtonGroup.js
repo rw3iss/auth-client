@@ -1,14 +1,15 @@
 import { jsx as _jsx } from "preact/jsx-runtime";
 /** @jsxImportSource preact */
-import { SignInWithGoogleButton, SignInWithAppleButton, SignInWithMicrosoftButton, SignInWithGitHubButton, } from './SsoButton.js';
+import { SignInWithGoogleButton, SignInWithAppleButton, SignInWithMicrosoftButton, SignInWithGitHubButton, SignInWithXButton, } from './SsoButton.js';
 const RENDERERS = {
     google: SignInWithGoogleButton,
     apple: SignInWithAppleButton,
     microsoft: SignInWithMicrosoftButton,
     github: SignInWithGitHubButton,
+    x: SignInWithXButton,
 };
 export function SsoButtonGroup(props) {
-    let providers = props.providers ?? ['google', 'apple', 'microsoft', 'github'];
+    let providers = props.providers ?? ['google', 'apple', 'microsoft', 'github', 'x'];
     if (props.allowedAuthMethods && props.allowedAuthMethods.length > 0) {
         const allow = new Set(props.allowedAuthMethods.map((m) => m.toLowerCase()));
         providers = providers.filter((p) => allow.has(p));
